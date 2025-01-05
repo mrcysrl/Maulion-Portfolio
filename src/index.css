@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bento__wrapper .bento__item {
+  border-radius: 1rem;
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bento__wrapper {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.bento__item {
+  transition: opacity 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect: slight scaling and shadow */
+.bento__item:hover {
+  transform: scale(1.05); /* Slightly larger */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.bento__item.expanded {
+  opacity: 1;
+}
+
+.bento__item.hidden {
+  opacity: 0;
+}
+
+.bento__wrapper.shrink {
+  transform: scale(0.9);
+  opacity: 0.5;
+}
+
+.bento__item.expandedContent {
+  opacity: 1;
+}
+
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Apply bouncing animation to each letter */
+.bouncing-letter {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+/* Trigger bounce animation when hovering on the parent element (.bento__item) */
+.bento__item:hover .bouncing-letter {
+  animation: bounce .5s ease infinite;
+  animation-delay: calc(1s * var(--index)); /* Stagger delay for each letter */
+}
+
+/* Set index for each letter dynamically using the `style` attribute in JSX */
+.text-bounce span {
+  --index: 0; /* Default index for fallback */
+}
+.text-bounce span:nth-child(1) { --index: 0; }
+.text-bounce span:nth-child(2) { --index: 0.1; }
+.text-bounce span:nth-child(3) { --index: 0.2; }
+.text-bounce span:nth-child(4) { --index: 0.3; }
+.text-bounce span:nth-child(5) { --index: 0.4; }
+.text-bounce span:nth-child(6) { --index: 0.5; }
+.text-bounce span:nth-child(7) { --index: 0.6; }
+.text-bounce span:nth-child(8) { --index: 0.7; }
+.text-bounce span:nth-child(9) { --index: 0.8; }
+.text-bounce span:nth-child(10) { --index: 0.9; }
+.text-bounce span:nth-child(11) { --index: 1; }
+.text-bounce span:nth-child(12) { --index: 1.1; }
+.text-bounce span:nth-child(13) { --index: 1.2; }
+.text-bounce span:nth-child(14) { --index: 1.3; }
+.text-bounce span:nth-child(15) { --index: 1.4; }
+.text-bounce span:nth-child(16) { --index: 1.5; }
+.text-bounce span:nth-child(17) { --index: 1.6; }
+
+
+.bento__wrapper > .bento__item:nth-child(2),
+.bento__wrapper > .bento__item:nth-child(5),
+.bento__wrapper > .bento__item:nth-child(8) {
+  background: #f4e064;
+  border: dashed 2px #ba8e23;
+}
+
+.bento__wrapper > .bento__item:nth-child(6),
+.bento__wrapper > .bento__item:nth-child(3){
+  background: #b19cd8;
+  border: dashed 2px #341539;
+}
+
