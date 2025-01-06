@@ -15,10 +15,9 @@
   transition: opacity 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect: slight scaling and shadow */
 .bento__item:hover {
-  transform: scale(1.05); /* Slightly larger */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .bento__item.expanded {
@@ -38,7 +37,21 @@
   opacity: 1;
 }
 
+.bento__wrapper > .bento__item:nth-child(2),
+.bento__wrapper > .bento__item:nth-child(5),
+.bento__wrapper > .bento__item:nth-child(8) {
+  background: #f4e064;
+  border: dashed 2px #ba8e23;
+}
 
+.bento__wrapper > .bento__item:nth-child(6),
+.bento__wrapper > .bento__item:nth-child(3){
+  background: #b19cd8;
+  border: dashed 2px #341539;
+}
+
+
+/*------Letter Animation Bounce------*/
 @keyframes bounce {
   0% {
     transform: translateY(0);
@@ -51,21 +64,18 @@
   }
 }
 
-/* Apply bouncing animation to each letter */
 .bouncing-letter {
   display: inline-block;
   transition: transform 0.2s ease;
 }
 
-/* Trigger bounce animation when hovering on the parent element (.bento__item) */
 .bento__item:hover .bouncing-letter {
   animation: bounce .5s ease infinite;
-  animation-delay: calc(1s * var(--index)); /* Stagger delay for each letter */
+  animation-delay: calc(1s * var(--index));
 }
 
-/* Set index for each letter dynamically using the `style` attribute in JSX */
 .text-bounce span {
-  --index: 0; /* Default index for fallback */
+  --index: 0; 
 }
 .text-bounce span:nth-child(1) { --index: 0; }
 .text-bounce span:nth-child(2) { --index: 0.1; }
@@ -84,24 +94,17 @@
 .text-bounce span:nth-child(15) { --index: 1.4; }
 .text-bounce span:nth-child(16) { --index: 1.5; }
 .text-bounce span:nth-child(17) { --index: 1.6; }
+.text-bounce span:nth-child(18) { --index: 1.7; }
+.text-bounce span:nth-child(19) { --index: 1.8; }
+.text-bounce span:nth-child(20) { --index: 1.9; }
+.text-bounce span:nth-child(21) { --index: 2.0; }
+.text-bounce span:nth-child(22) { --index: 2.1; }
 
 
-.bento__wrapper > .bento__item:nth-child(2),
-.bento__wrapper > .bento__item:nth-child(5),
-.bento__wrapper > .bento__item:nth-child(8) {
-  background: #f4e064;
-  border: dashed 2px #ba8e23;
-}
-
-.bento__wrapper > .bento__item:nth-child(6),
-.bento__wrapper > .bento__item:nth-child(3){
-  background: #b19cd8;
-  border: dashed 2px #341539;
-}
-
+/*------Notification Bubble------*/
 .notification-bubble {
   position: absolute;
-  top: -40px; /* Adjust to position above the button */
+  top: -40px; 
   left: 50%;
   transform: translateX(-50%);
   background-color: #28a745;
@@ -118,10 +121,11 @@
 .notification-bubble.visible {
   opacity: 1;
   pointer-events: auto;
-  transform: translate(-50%, -10px); /* Slight bounce effect */
+  transform: translate(-50%, -10px);
 }
 
 
+/*------Spin------*/
 @keyframes spin {
   0% {
     transform: rotate(0deg);

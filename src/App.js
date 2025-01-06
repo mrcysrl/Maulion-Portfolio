@@ -60,18 +60,19 @@ export default function App() {
               <div className="expandedContent">Expanded content for Item 1</div>
             ) : (
               <div className="relative h-full">
-                <div className="item__title absolute inset-x-0 bottom-0 text-[3rem] font-200 text-center pb-[1rem] text-white drop-shadow-lg font-hammersmith">
-                  <h1 className="text-bounce">
-                    {"Computer Engineer".split("").map((char, index) => (
+                <div className="item__title absolute right-0 bottom-10 px-[1rem]">
+                  <h1 className="text-bounce text-[2rem] text-white drop-shadow-lg font-hammersmith">
+                    {"Marc Ysrael J. Maulion".split("").map((char, index) => (
                       <span key={index} className="bouncing-letter">
                         {char === " " ? "\u00A0" : char}
                       </span>
                     ))}
                   </h1>
+                 <p className="text-white">Computer Engineer 2023 - 2024</p>
                 </div>
 
                 <div className="item__image h-full">
-                <img className="w-full h-full object-cover object-[50%_20%] rounded-[1rem]" src= {`${process.env.PUBLIC_URL}/Marc.webp`} alt=""/>
+                <img className="w-full h-full object-cover object-[50%_30%] rounded-[1rem]" src= {`${process.env.PUBLIC_URL}/Marc.webp`} alt=""/>
                 </div>
               </div>
             )}
@@ -198,10 +199,11 @@ export default function App() {
 
 
           {/* Bento Item 12 */}
-          <div className={`bento__item col-span-3 row-span-1 flex justify-center items-center bg-[#282c34] rounded-lg shadow-md p-2 gap-[1rem] ${
-              expandedItem === null ? "" : "hidden"}`}>
-            <h3 className="text-[1.5rem] font-bold text-white">Made with ReactJS</h3>
-            <div className="w-16 h-16">
+          <div className={`bento__item col-span-3 row-span-1 flex justify-center items-center bg-[#282c34] rounded-lg shadow-md p-4 ${expandedItem === null ? "" : "hidden"}`}>
+            <div className="w-[60%] mx-auto my-0">
+            <h3 className="text-[1.2rem] font-bold text-white text-justify ">Made with ReactJS & Tailwind CSS</h3>
+            </div>
+            <div className="w-[5rem]">
               <img src= {`${process.env.PUBLIC_URL}/logo192.png`} alt="" className="logo-spin" />
             </div>
           </div>
