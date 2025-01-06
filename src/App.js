@@ -109,14 +109,9 @@ export default function App() {
 
 
           {/* Bento Item 4 */}
-          <div className={`bento__item col-span-3 row-span-1 flex justify-center items-center bg-[#282c34] rounded-lg shadow-md p-2 gap-[1rem] ${
-              expandedItem === null ? "" : "hidden"}`}>
-            <h3 className="text-[1.5rem] font-bold text-white">Made with ReactJS</h3>
-            <div className="w-16 h-16">
-              <img src= {`${process.env.PUBLIC_URL}/logo192.png`} alt="" className="logo-spin" />
-            </div>
+          <div className={`bento__item col-span-3 row-span-1 ${expandedItem && expandedItem !== "item4" ? "hidden" : ""}`}>
+            Item 4
           </div>
-
 
 
 
@@ -193,7 +188,6 @@ export default function App() {
 
 
 
-
           {/* Bento Item 11 */}
           <div className={`bento__item ${expandedItem && expandedItem !== "item10" ? "hidden" : ""} flex justify-center items-center w-24 h-24 bg-[#0077b5] rounded-full`}>
               <a href="https://www.linkedin.com/in/marc-ysrael-maulion-914402279" target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-full h-full">
@@ -204,8 +198,12 @@ export default function App() {
 
 
           {/* Bento Item 12 */}
-          <div className={`bento__item col-span-3 ${expandedItem && expandedItem !== "item12" ? "hidden" : ""}`}>
-            Item 12
+          <div className={`bento__item col-span-3 row-span-1 flex justify-center items-center bg-[#282c34] rounded-lg shadow-md p-2 gap-[1rem] ${
+              expandedItem === null ? "" : "hidden"}`}>
+            <h3 className="text-[1.5rem] font-bold text-white">Made with ReactJS</h3>
+            <div className="w-16 h-16">
+              <img src= {`${process.env.PUBLIC_URL}/logo192.png`} alt="" className="logo-spin" />
+            </div>
           </div>
 
           
