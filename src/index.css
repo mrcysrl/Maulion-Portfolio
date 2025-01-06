@@ -11,10 +11,6 @@
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.bento__item {
-  transition: opacity 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
 .bento__item:hover {
   transform: scale(1.05);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);

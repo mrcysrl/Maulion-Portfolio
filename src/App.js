@@ -51,14 +51,22 @@ export default function App() {
 
           {/* Bento Item 1 */}
           <div
-            className={`bento__item cursor-pointer ${expandedItem === "item1" ? "col-span-10 row-span-5 expanded" : "col-span-5 row-span-3"}
+            className={`bento__item cursor-pointer ${expandedItem === "item1" ? "col-span-10 row-span-5 expanded border-dashed border-[2px] border-black flex items-center justify-center" : "col-span-5 row-span-3"}
               ${expandedItem && expandedItem !== "item1" ? "hidden" : ""} 
               ${expandedItem !== "item1" ? "moving-border" : ""}`}
             onClick={() => handleExpand("item1")}
           >
+
             {expandedItem === "item1" ? (
-              <div className="expandedContent">Expanded content for Item 1</div>
+              <div className="expandedContent max-h-[500px] w-full overflow-y-auto">
+                <div className="item1_expanded p-[2rem]">
+
+                    <h2 className="sub text-[1.5rem]">Hello! My Name is</h2>
+                    <h1 className="toyang text-[3rem] font-bold">Marc Ysrael J. Maulion</h1>
+                </div>
+              </div>
             ) : (
+
               <div className="relative h-full">
                 <div className="item__title absolute right-0 bottom-10 px-[1rem]">
                   <h1 className="text-bounce text-[2rem] text-white drop-shadow-lg font-hammersmith">
@@ -77,7 +85,6 @@ export default function App() {
               </div>
             )}
           </div>
-
 
 
 
