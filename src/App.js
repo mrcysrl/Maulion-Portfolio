@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
@@ -8,9 +8,12 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 library.add(faFacebook, faLinkedin, faEnvelope);
 
 export default function App() {
-  const [expandedItem, setExpandedItem] = useState(null);  // tracker
-  const [isShrinking, setIsShrinking] = useState(false);   // shrink trigger
+  const [expandedItem, setExpandedItem] = useState(null);  // Expandable Items
+  const [isShrinking, setIsShrinking] = useState(false);   // Shrink trigger
   const [showNotification, setShowNotification] = useState(false); // Notification state
+  const [scrollVisibility, setScrollVisibility] = useState({}); // Animation Scroll
+
+
 
   // Email Copy function
   const handleCopyEmail = () => {
@@ -27,6 +30,8 @@ export default function App() {
       .catch(err => console.error('Failed to copy email: ', err));
   };
 
+
+
   // Item expansion and transition handle function
   const handleExpand = (item) => {
     setIsShrinking(true); // shrink wrapper
@@ -39,7 +44,35 @@ export default function App() {
     }, 500); // Duration of the shrink effect
   };
 
-  
+
+
+  // Scroll Animation function
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const target = entry.target.className.split(" ").find(cls => cls.startsWith("scroll-item-"));
+        if (target) {
+          setScrollVisibility(prevState => ({
+            ...prevState,
+            [target]: entry.isIntersecting
+          }));
+        }
+      },
+      { threshold: 0.9 } // Triggers when 90% of the element is in view
+    );
+
+    document.querySelectorAll(".scroll-item").forEach(item => {
+      observer.observe(item);
+    });
+
+    return () => {
+      document.querySelectorAll(".scroll-item").forEach(item => {
+        observer.unobserve(item);
+      });
+    };
+  }, []);
+
+
 
   return (
     <section className="bento bg-white h-screen flex justify-center items-center">
@@ -50,19 +83,35 @@ export default function App() {
 
 
           {/* Bento Item 1 */}
-          <div
-            className={`bento__item cursor-pointer ${expandedItem === "item1" ? "col-span-10 row-span-5 expanded border-dashed border-[2px] border-black flex items-center justify-center" : "col-span-5 row-span-3"}
-              ${expandedItem && expandedItem !== "item1" ? "hidden" : ""} 
-              ${expandedItem !== "item1" ? "moving-border" : ""}`}
-            onClick={() => handleExpand("item1")}
-          >
+          <div className={`bento__item cursor-pointer ${expandedItem === "item1" ? "col-span-10 row-span-5 expanded border-dashed border-[2px] border-black flex items-center justify-center" : "col-span-5 row-span-3"}
+          ${expandedItem && expandedItem !== "item1" ? "hidden" : ""} 
+          ${expandedItem !== "item1" ? "moving-border" : ""}`}
+          onClick={() => handleExpand("item1")}>
 
             {expandedItem === "item1" ? (
-              <div className="expandedContent max-h-[500px] w-full overflow-y-auto">
-                <div className="item1_expanded p-[2rem]">
+              <div className="expandedContent max-h-[600px] w-full overflow-y-auto">
+                <div className="click__home text-center text-gray-600">Tip: Scroll down for more information, and you can always return home by clicking inside this Bento again.</div>
+                <div className="scrollable__items">
+                  <div className="item1__expanded p-[2rem] grid grid-cols-2 gap-[2rem] items-center justify-center">
+                    <div className="first__scroll text-center">
+                      <h2 className="sub text-[1.5rem]">Hello! My Name is</h2>
+                      <h1 className="toyang text-[3rem] font-bold">Marc Ysrael J. Maulion</h1>
+                    </div>
+                    <img src={`${process.env.PUBLIC_URL}/Marc1.webp`} alt="" className="w-[20rem] mx-auto my-0 rounded-[2rem] shadow-[0px_4px_10px_rgba(0,_0,_0,_0.9)]"/>
+                  </div>
 
-                    <h2 className="sub text-[1.5rem]">Hello! My Name is</h2>
-                    <h1 className="toyang text-[3rem] font-bold">Marc Ysrael J. Maulion</h1>
+                  <div className={`second__scroll scroll-item-2 transition-opacity duration-500 ${scrollVisibility["scroll-item-2"] ? "opacity-100" : "opacity-0"}`}>
+                    <div className="p-[2rem] grid grid-cols-2 gap-[2rem] items-center justify-center">
+                      <h2 className="sub text-[1.5rem]">Welcome to My World</h2>
+                      <p className="text-[1.2rem]">I am passionate about building creative and efficient solutions.</p>
+                    </div>
+                  </div>
+                  <div className={`third__scroll scroll-item-3 transition-opacity duration-500 ${scrollVisibility["scroll-item-3"] ? "opacity-100" : "opacity-0"}`}>
+                    <div className="p-[2rem] grid grid-cols-2 gap-[2rem] items-center justify-center">
+                      <h2 className="sub text-[1.5rem]">Welcome to My World</h2>
+                      <p className="text-[1.2rem]">I am passionate about building creative and efficient solutions.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             ) : (

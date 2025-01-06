@@ -19,6 +19,9 @@ module.exports = {
           '50%': { transform: 'translateY(-10px)' },
         },
       },
+      transitionProperty: {
+        'opacity': 'opacity',
+      },
     },
   },
   plugins: [],
