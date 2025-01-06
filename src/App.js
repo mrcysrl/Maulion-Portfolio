@@ -71,7 +71,7 @@ export default function App() {
                 </div>
 
                 <div className="item__image h-full">
-                  <img className="w-full h-full object-cover object-[50%_20%] rounded-[1rem]" src="./Marc.png" alt=""/>
+                <img className="w-full h-full object-cover object-[50%_20%] rounded-[1rem]" src= {`${process.env.PUBLIC_URL}/Marc.webp`} alt=""/>
                 </div>
               </div>
             )}
@@ -109,11 +109,11 @@ export default function App() {
 
 
           {/* Bento Item 4 */}
-          <div className={`bento__item col-span-3 row-span-1 flex items-center justify-center items-center bg-[#282c34] rounded-lg shadow-md p-2 gap-[1rem] ${
+          <div className={`bento__item col-span-3 row-span-1 flex justify-center items-center bg-[#282c34] rounded-lg shadow-md p-2 gap-[1rem] ${
               expandedItem === null ? "" : "hidden"}`}>
             <h3 className="text-[1.5rem] font-bold text-white">Made with ReactJS</h3>
             <div className="w-16 h-16">
-              <img src="./logo192.png" alt="" className="logo-spin" />
+              <img src= {`${process.env.PUBLIC_URL}/logo192.png`} alt="" className="logo-spin" />
             </div>
           </div>
 
