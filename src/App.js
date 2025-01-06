@@ -71,7 +71,7 @@ export default function App() {
                 </div>
 
                 <div className="item__image h-full">
-                  <img className="w-full h-full object-cover object-[50%_20%] rounded-[1rem]" src="/Marc.webp" alt="" />
+                  <img className="w-full h-full object-cover object-[50%_20%] rounded-[1rem]" src="./Marc.webp" alt="" />
                 </div>
               </div>
             )}
