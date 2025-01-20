@@ -97,7 +97,7 @@ export default function App() {
 
   return (
     <section className={`bento bg-white flex justify-center items-center sm:h-full lg:h-screen md:w-screen
-    ${expandedItem ? "sm:h-full lg:h-screen": ""}`}>
+    ${expandedItem ? "sm:h-screen": ""}`}>
       <div className={`container p-8 mx-auto my-0 flex justify-center items-center
         ${expandedItem ? "" : ""}`}>
         <div className={`bento__wrapper
