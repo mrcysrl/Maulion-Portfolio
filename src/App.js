@@ -96,18 +96,18 @@ export default function App() {
 
 
   return (
-    <section className={`bento bg-white flex justify-center items-center sm:h-full lg:h-screen md:w-screen
-    ${expandedItem ? "sm:h-screen": ""}`}>
-      <div className={`container p-8 mx-auto my-0 flex justify-center items-center
-        ${expandedItem ? "" : ""}`}>
+    <section className={`bento bg-white flex
+    ${expandedItem ? "": ""}`}>
+      <div className={`container p-8 mx-auto my-0 flex justify-center items-center sm:h-full lg:h-screen sm:w-screen
+        ${expandedItem ? "sm:h-screen" : ""}`}>
         <div className={`bento__wrapper
         text-black grid 2xl:gap-[2rem] xl:gap-[1.5rem] sm:gap-[1rem]
           2xl:grid-cols-[repeat(10,_100px)] 2xl:grid-rows-[repeat(5,_100px)]
           xl:grid-cols-[repeat(8,_100px)] xl:grid-rows-[repeat(5,_100px)]
           lg:grid-cols-[repeat(6,_100px)] lg:grid-rows-[repeat(6,_100px)]
           md:grid-cols-[repeat(4,_100px)] md:grid-rows-[repeat(10,_100px)] 
-          sm:grid-cols-[repeat(3,_100px)] sm:grid-rows-[repeat(9,_100px)]
-          ${expandedItem ? "sm:grid-cols-[repeat(3,_100px)] sm:grid-rows-[repeat(6,_100px)] md:grid-cols-[repeat(4,_100px)] md:grid-rows-[repeat(7,_100px)] lg:grid-cols-[repeat(6,_100px)] lg:grid-rows-[repeat(6,_100px)] xl:grid-cols-[repeat(8,_100px)] xl:grid-rows-[repeat(5,_100px)] 2xl:grid-cols-[repeat(10,_100px)] 2xl:grid-rows-[repeat(5,_100px)]" : ""}
+          sm:grid-cols-[repeat(3,_100px)]
+          ${expandedItem ? "gap-0 sm:grid-cols-[repeat(3,_100px)] sm:grid-rows-[repeat(6,_100px)] md:grid-cols-[repeat(4,_100px)] md:grid-rows-[repeat(7,_100px)] lg:grid-cols-[repeat(6,_100px)] lg:grid-rows-[repeat(6,_100px)] xl:grid-cols-[repeat(8,_100px)] xl:grid-rows-[repeat(5,_100px)] 2xl:grid-cols-[repeat(10,_100px)] 2xl:grid-rows-[repeat(5,_100px)]" : "sm:grid-rows-[repeat(9,_100px)]"}
           ${isShrinking ? "shrink" : ""}`}>
           
           {/* Bento Item 1 */}
