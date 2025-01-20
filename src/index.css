@@ -118,6 +118,17 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+
+.item2__title h1:hover{
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+.item2__title h1{ 
+  transition: transform 0.3s ease;
+}
+
+
 .notification-bubble.visible {
   opacity: 1;
   pointer-events: auto;
@@ -137,5 +148,28 @@
 
 .logo-spin {
   animation: spin 5s linear infinite;
+}
+
+
+/*------Scrollbar------*/
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+@media (max-width: 500px){
+  .bento__item:hover {
+    transform: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
+  }
+
+  .item2__title h1:hover{
+    transform: none;
+  }
 }
 

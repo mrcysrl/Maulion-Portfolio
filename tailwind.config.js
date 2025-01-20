@@ -22,6 +22,13 @@ module.exports = {
       transitionProperty: {
         'opacity': 'opacity',
       },
+      screens: {
+        'sm': '0px',   
+        'md': '500px',   
+        'lg': '720px',  
+        'xl': '1000px',  
+        '2xl': '1200px', 
+      },
     },
   },
   plugins: [],
