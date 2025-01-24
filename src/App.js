@@ -58,7 +58,7 @@ export default function App() {
       });
     };
 
-    const observerOptions = { threshold: .8 }; // Trigger
+    const observerOptions = { threshold: 1 }; // Trigger
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
     const sections = document.querySelectorAll("[data-section]");
@@ -76,7 +76,7 @@ export default function App() {
     const handleScroll = () => {
       console.log("Scroll detected");
       
-      if (scrollableContainer && scrollableContainer.scrollTop > 50 && !tipFade) {
+      if (scrollableContainer && scrollableContainer.scrollTop > 100 && !tipFade) {
         setTipFade(true);
       }
     };
@@ -111,7 +111,7 @@ export default function App() {
           ${isShrinking ? "shrink" : ""}`}>
           
           {/* Bento Item 1 */}
-          <div className={`bento__item cursor-pointer ${expandedItem === "item1" ? "sm:col-span-3 sm:row-span-6 md:col-span-4 md:row-span-7 lg:col-span-6 lg:row-span-6 xl:col-span-8 xl:row-span-5 2xl:col-span-10 expanded border-dashed border-[2px] border-black flex items-center justify-center" : "sm:col-span-3 sm:row-span-2 md:col-span-4 md:row-span-2 xl:col-span-4 xl:row-span-3 2xl:col-span-5"}
+          <div className={`bento__item cursor-pointer ${expandedItem === "item1" ? "p-[2rem] sm:col-span-3 sm:row-span-6 md:col-span-4 md:row-span-7 lg:col-span-6 lg:row-span-6 xl:col-span-8 xl:row-span-5 2xl:col-span-10 expanded border-dashed border-[2px] border-black flex items-center justify-center" : "sm:col-span-3 sm:row-span-2 md:col-span-4 md:row-span-2 xl:col-span-4 xl:row-span-3 2xl:col-span-5"}
             ${expandedItem && expandedItem !== "item1" ? "hidden" : ""} 
             ${expandedItem !== "item1" ? "moving-border" : ""}`}
             onClick={() => handleExpand("item1")}>
@@ -119,29 +119,33 @@ export default function App() {
             {expandedItem === "item1" ? (
               <div className="expandedContent relative">
 
-                <div className={`click__home absolute bottom-4 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-gray-600 transition-opacity ${tipFade ? "hidden ease-[2s]" : "block"}`}>
+                <div className={`click__home absolute sm:bottom-10 md:bottom-4 left-1/2 transform -translate-x-1/2 sm: whitespace-normal xl:whitespace-nowrap text-gray-600 sm:text-[.8rem] md:text-[1rem] sm:text-justify lg:text-center w-full transition-opacity ${tipFade ? "hidden ease-[2s]" : "block"}`}>
                   Tip: Scroll down for more information, and you can always return home by clicking inside this Bento again.
                 </div>
 
 
-                <div className="scrollable__items max-h-[600px] w-full overflow-y-auto overflow-x-hidden scrollbar-hide">
+                <div className="scrollable__items sm:max-h-[640px] md:max-h-[700px] lg:max-h-[640px] xl:max-h-[550px] 2xl:max-h-[600px] w-full overflow-y-auto overflow-x-hidden scrollbar-hide">
 
-                  {/* First Scroll */}
-                  <div className="first__scroll p-[2rem] grid grid-cols-2 gap-[2rem] items-center">
-                    <div className="first__title text-center">
-                      <h2 className="sub text-[1.5rem]">Hello! My Name is</h2>
-                      <h1 className="toyang text-[3rem] font-bold">Marc Ysrael J. Maulion</h1>
-                    </div>
-                    <img src={`${process.env.PUBLIC_URL}/Marc1.webp`} alt="" className="w-[20rem] mx-auto my-0 rounded-[2rem] shadow-[0px_4px_10px_rgba(0,_0,_0,_0.9)]"/>
-                  </div>
+                  <div className="scrollable__wrapper flex flex-col sm:gap-[5rem] md:gap-[3rem] lg:gap-[2rem] 2xl:gap-[3rem] py-[3rem] justify-center items-center mx-0 my-auto">
 
-                  {/* Second Scroll */}
-                  <div className={`second__scroll p-[2rem] grid grid-cols-2 gap-[2rem] items-center justify-center transition-opacity duration-500 ${visibleSections.second ? "opacity-100" : "opacity-0"}`} data-section="second">
-                    <div className="second__title text-center">
-                      <h2 className="sub text-[1.5rem]">About Me</h2>
-                      <h1 className="toyang text-[3rem] font-bold">Cybersecurity Enthusiast</h1>
+                    {/* First Scroll */}
+                    <div className="first__scroll w-full grid
+                    sm:grid-cols-1 xl:grid-cols-2 sm:gap-[1.5rem] md:gap-[2rem] lg:gap-[1.5rem] xl:gap-[3rem] items-center">
+                      <div className="first__title text-center">
+                        <h2 className="sub sm:text-[1rem] md:text-[1.5rem]">Hello! My Name is</h2>
+                        <h1 className="toyang whitespace-nowrap sm:text-[1.5rem] md:text-[2rem] xl:text-[2.5rem] font-bold">Marc Ysrael J. Maulion</h1>
+                      </div>
+                      <img src={`${process.env.PUBLIC_URL}/Marc1.webp`} alt="" className="sm:w-[13rem] md:w-[15rem] xl:w-[18rem] mx-auto my-0 rounded-[1rem] shadow-[0px_4px_10px_rgba(0,_0,_0,_0.9)]"/>
                     </div>
-                    <img src={`${process.env.PUBLIC_URL}/Marc2.webp`} alt="" className="w-[20rem] mx-auto my-0 rounded-[2rem] shadow-[0px_4px_10px_rgba(0,_0,_0,_0.9)]"/>
+
+                    {/* Second Scroll */}
+                    <div className={`second__scroll grid grid-cols-2 gap-[2rem] items-center justify-center transition-opacity duration-500 ${visibleSections.second ? "opacity-100" : "opacity-0"}`} data-section="second">
+                      <div className="second__title text-center">
+                        <h2 className="sub text-[1.5rem]">About Me</h2>
+                        <h1 className="toyang text-[3rem] font-bold">Cybersecurity Enthusiast</h1>
+                      </div>
+                      <img src={`${process.env.PUBLIC_URL}/Marc2.webp`} alt="" className="w-[20rem] mx-auto my-0 rounded-[2rem] shadow-[0px_4px_10px_rgba(0,_0,_0,_0.9)]"/>
+                    </div>
                   </div>
                 </div>
               </div>
