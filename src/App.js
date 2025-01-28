@@ -231,7 +231,7 @@ export default function App() {
 
 
           {/* Bento Item 4 */}
-          <div className={`bento__item border-dashed sm:col-span-1 sm:row-span-2 md:col-span-2 md:row-span-1 2xl:col-span-3${expandedItem && expandedItem !== "item4" ? "hidden" : ""}`}>
+          <div className={`bento__item cursor-pointer sm:col-span-1 sm:row-span-2 md:col-span-2 md:row-span-1 2xl:col-span-3 ${expandedItem && expandedItem !== "item4" ? "hidden" : ""}`}>
           <a href={`${process.env.PUBLIC_URL}/Marc Ysrael J. Maulion (CV 2025).pdf`} download="Marc Ysrael J. Maulion (CV 2025).pdf" className="flex sm:flex-col md:flex-row justify-center items-center p-[2rem] sm:gap-[1rem] md:gap-[2rem] 2xl:gap-[1rem] w-full h-full">
           <h1 className="font-bold sm:hidden 2xl:block text-[1.3rem]">get my CV – let's make things happen!</h1>
           <h1 className="font-bold sm:block 2xl:hidden sm:order-1 md:order-none sm:text-[3rem] md:text-[4rem]">CV</h1>
