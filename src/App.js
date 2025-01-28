@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faFile } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faFile, faFileArrowDown} from '@fortawesome/free-solid-svg-icons';
+import { ReactTyped as Typed } from "react-typed";
 
-library.add(faFacebook, faLinkedin, faEnvelope, faFile);
+library.add(faFacebook, faLinkedin, faEnvelope, faFile, faFileArrowDown);
 
 export default function App() {
   const [expandedItem, setExpandedItem] = useState(null);           // Expand Function
@@ -13,6 +14,7 @@ export default function App() {
   const [visibleSections, setVisibleSections] = useState({
     second: false,
     third: false,
+    fourth: false,
   });                                                               // Scroll Fade Function
   const [tipFade, setTipFade] = useState(false);                    // Tip Fade Function
 
@@ -58,7 +60,7 @@ export default function App() {
       });
     };
 
-    const observerOptions = { threshold: 1 }; // Trigger
+    const observerOptions = { threshold: .5 }; // Trigger
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
     const sections = document.querySelectorAll("[data-section]");
@@ -76,7 +78,7 @@ export default function App() {
     const handleScroll = () => {
       console.log("Scroll detected");
       
-      if (scrollableContainer && scrollableContainer.scrollTop > 100 && !tipFade) {
+      if (scrollableContainer && scrollableContainer.scrollTop > 20 && !tipFade) {
         setTipFade(true);
       }
     };
@@ -107,11 +109,11 @@ export default function App() {
           lg:grid-cols-[repeat(6,_100px)] lg:grid-rows-[repeat(6,_100px)]
           md:grid-cols-[repeat(4,_100px)] md:grid-rows-[repeat(10,_100px)] 
           sm:grid-cols-[repeat(3,_100px)]
-          ${expandedItem ? "gap-0 sm:grid-cols-[repeat(3,_100px)] sm:grid-rows-[repeat(6,_100px)] md:grid-cols-[repeat(4,_100px)] md:grid-rows-[repeat(7,_100px)] lg:grid-cols-[repeat(6,_100px)] lg:grid-rows-[repeat(6,_100px)] xl:grid-cols-[repeat(8,_100px)] xl:grid-rows-[repeat(5,_100px)] 2xl:grid-cols-[repeat(10,_100px)] 2xl:grid-rows-[repeat(5,_100px)]" : "sm:grid-rows-[repeat(9,_100px)]"}
+          ${expandedItem ? "sm:grid-cols-[repeat(3,_100px)] sm:grid-rows-[repeat(6,_100px)] md:grid-cols-[repeat(4,_100px)] md:grid-rows-[repeat(7,_100px)] lg:grid-cols-[repeat(6,_100px)] lg:grid-rows-[repeat(6,_100px)] xl:grid-cols-[repeat(8,_100px)] xl:grid-rows-[repeat(5,_100px)] 2xl:grid-cols-[repeat(10,_100px)] 2xl:grid-rows-[repeat(5,_100px)]" : "sm:grid-rows-[repeat(9,_100px)]"}
           ${isShrinking ? "shrink" : ""}`}>
           
           {/* Bento Item 1 */}
-          <div className={`bento__item cursor-pointer ${expandedItem === "item1" ? "p-[2rem] sm:col-span-3 sm:row-span-6 md:col-span-4 md:row-span-7 lg:col-span-6 lg:row-span-6 xl:col-span-8 xl:row-span-5 2xl:col-span-10 expanded border-dashed border-[2px] border-black flex items-center justify-center" : "sm:col-span-3 sm:row-span-2 md:col-span-4 md:row-span-2 xl:col-span-4 xl:row-span-3 2xl:col-span-5"}
+          <div className={`bento__item cursor-pointer ${expandedItem === "item1" ? "sm:col-span-3 sm:row-span-6 md:col-span-4 md:row-span-7 lg:col-span-6 lg:row-span-6 xl:col-span-8 xl:row-span-5 2xl:col-span-10 expanded border-dashed border-[2px] border-black" : "sm:col-span-3 sm:row-span-2 md:col-span-4 md:row-span-2 xl:col-span-4 xl:row-span-3 2xl:col-span-5"}
             ${expandedItem && expandedItem !== "item1" ? "hidden" : ""} 
             ${expandedItem !== "item1" ? "moving-border" : ""}`}
             onClick={() => handleExpand("item1")}>
@@ -119,47 +121,70 @@ export default function App() {
             {expandedItem === "item1" ? (
               <div className="expandedContent relative">
 
-                <div className={`click__home absolute sm:bottom-10 md:bottom-4 left-1/2 transform -translate-x-1/2 sm: whitespace-normal xl:whitespace-nowrap text-gray-600 sm:text-[.8rem] md:text-[1rem] sm:text-justify lg:text-center w-full transition-opacity ${tipFade ? "hidden ease-[2s]" : "block"}`}>
+                <div className={`click__home absolute px-[2rem] sm:bottom-10 md:bottom-4 left-1/2 transform -translate-x-1/2 sm: whitespace-normal xl:whitespace-nowrap text-gray-600 sm:text-[.8rem] md:text-[1rem] sm:text-justify lg:text-center w-full transition-opacity ${tipFade ? "hidden ease-[2s]" : "block"}`}>
                   Tip: Scroll down for more information, and you can always return home by clicking inside this Bento again.
                 </div>
 
 
-                <div className="scrollable__items sm:max-h-[640px] md:max-h-[700px] lg:max-h-[640px] xl:max-h-[550px] 2xl:max-h-[600px] w-full overflow-y-auto overflow-x-hidden scrollbar-hide">
+                <div className="scrollable__items sm:max-h-[675px] md:max-h-[791px] lg:max-h-[675px] xl:max-h-[591px] 2xl:max-h-[623px] overflow-y-auto overflow-x-hidden scrollbar-hide">
 
-                  <div className="scrollable__wrapper flex flex-col sm:gap-[5rem] md:gap-[3rem] lg:gap-[2rem] 2xl:gap-[3rem] py-[3rem] justify-center items-center mx-0 my-auto">
+                  <div className="scrollable__wrapper flex flex-col w-full sm:py-[5rem] xl:py-[3rem]">
+                  <div className="scroll__container grid sm:gap-[5rem] lg:gap-[10rem]">
 
                     {/* First Scroll */}
-                    <div className="first__scroll w-full grid
-                    sm:grid-cols-1 xl:grid-cols-2 sm:gap-[1.5rem] md:gap-[2rem] lg:gap-[1.5rem] xl:gap-[3rem] items-center">
+                    <div className="first__scroll w-full flex sm:flex-col xl:flex-row items-center justify-evenly sm:gap-[2rem] xl:gap-0 sm:mb-[5rem] md:mb-[10rem] lg:mb-0">
                       <div className="first__title text-center">
-                        <h2 className="sub sm:text-[1rem] md:text-[1.5rem]">Hello! My Name is</h2>
-                        <h1 className="toyang whitespace-nowrap sm:text-[1.5rem] md:text-[2rem] xl:text-[2.5rem] font-bold">Marc Ysrael J. Maulion</h1>
+                        <h2 className="sub sm:text-[1rem] md:text-[1.5rem] xl:text-[2rem]">Hello! My Name is</h2>
+                        <h1 className="toyang whitespace-nowrap sm:text-[1.5rem] md:text-[2rem] xl:text-[3rem] font-bold">Marc Ysrael J. Maulion</h1>
                       </div>
-                      <img src={`${process.env.PUBLIC_URL}/Marc1.webp`} alt="" className="sm:w-[13rem] md:w-[15rem] xl:w-[18rem] mx-auto my-0 rounded-[1rem] shadow-[0px_4px_10px_rgba(0,_0,_0,_0.9)]"/>
+                      <img src={`${process.env.PUBLIC_URL}/Marc1.webp`} alt="" className="sm:w-[13rem] md:w-[15rem] xl:w-[18rem] 2xl:w-[20rem] rounded-[1rem] shadow-[0px_4px_10px_rgba(0,_0,_0,_0.9)]"/>
                     </div>
 
                     {/* Second Scroll */}
-                    <div className={`second__scroll grid grid-cols-2 gap-[2rem] items-center justify-center transition-opacity duration-500 ${visibleSections.second ? "opacity-100" : "opacity-0"}`} data-section="second">
+                    <div className={`second__scroll w-full flex 
+                      items-center justify-center transition-opacity duration-500 ${visibleSections.second ? "opacity-100" : "opacity-0"}`} data-section="second">
                       <div className="second__title text-center">
-                        <h2 className="sub text-[1.5rem]">About Me</h2>
-                        <h1 className="toyang text-[3rem] font-bold">Cybersecurity Enthusiast</h1>
+                        <h2 className="sm:text-[.75rem] md:text-[1rem] xl:text-[1.5rem] sm:text-justify lg:text-center max-w-[80%] mx-auto my-0 sm:pb-[.5rem] lg:pb-0">I recently graduated from <strong>De La Salle Lipa (2024)</strong> with a bachelor's degree in Computer Engineering, and I'd like to think of myself as a:</h2>
+                        <Typed strings = {[
+                                "Passionate Developer",
+                                "Meticulous Designer",
+                                "Tech Enthusiast",
+                              ]}
+                            typeSpeed={40}
+                            backSpeed={30}
+                            backDelay={2000}
+                            loop
+                            className="typewrite whitespace-nowrap text-center sm:text-[1.75rem] md:text-[2.3rem] lg:text-[3rem] xl:text-[5rem] 2xl:text-[7rem] font-bold italic"/>
                       </div>
-                      <img src={`${process.env.PUBLIC_URL}/Marc2.webp`} alt="" className="w-[20rem] mx-auto my-0 rounded-[2rem] shadow-[0px_4px_10px_rgba(0,_0,_0,_0.9)]"/>
                     </div>
+
+                    {/* Third Scroll */}
+                    <div className={`second__scroll w-full flex 
+                      items-center justify-center transition-opacity duration-500 ${visibleSections.third ? "opacity-100" : "opacity-0"}`} data-section="third">
+                      <div className="third__title text-center">
+                      <p className="sm:text-[.75rem] md:text-[1rem] xl:text-[1.5rem] text-justify max-w-[80%] mx-auto my-0 text-white bg-black sm:px-[2rem] lg:px-[4rem] sm:py-[2rem] lg:py-[4rem] rounded-tr-[3rem] rounded-bl-[3rem] shadow-[0px_4px_8px_rgba(0,_0,_0,_0.9)]"><span>I have a good foundation in cybersecurity, including networking through CISCO Academy and malware analysis, along with a deep understanding of both hardware and software. I’ve gained hands-on experience working with PC hardware by offering services like upgrading RAM, replacing monitors, and building custom PCs.</span>
+                      
+                      <span>During my On-the-Job Training at Frontline Business Solutions, I developed practical skills in web development. Afterward, I took on freelance projects, including creating a website for a videography and photography business in the Netherlands, which helped me further refine my web development expertise.</span>
+
+                      <span>I’m passionate about combining my technical knowledge and creativity to deliver impactful solutions in web development, hardware troubleshooting, and cybersecurity.</span></p>
+                      </div>
+                    </div>
+
+                  </div>
                   </div>
                 </div>
               </div>
             ) : (
               <div className="relative h-full">
-                <div className="item1__title absolute right-0 bottom-10 px-[1rem]">
-                  <h1 className="text-bounce text-[2rem] text-white drop-shadow-lg font-hammersmith">
+                <div className="item1__title absolute right-0 sm:bottom-10 md:bottom-2 xl:bottom-[5rem] 2xl:bottom-10 px-[1rem]">
+                  <h1 className="text-bounce sm:text-[1rem] md:text-[1.4rem] xl:text-[1.5rem] 2xl:text-[2.1rem] text-white drop-shadow-lg font-hammersmith">
                     {"Marc Ysrael J. Maulion".split("").map((char, index) => (
                       <span key={index} className="bouncing-letter">
                         {char === " " ? "\u00A0" : char}
                       </span>
                     ))}
                   </h1>
-                  <p className="text-white">Computer Engineer 2023 - 2024</p>
+                  <p className="text-white sm:text-[.6rem] md:text-[.8rem] xl:text-[1rem]">Computer Engineer 2023 - 2024</p>
                 </div>
                 <div className="item__image h-full">
                   <img
@@ -206,8 +231,12 @@ export default function App() {
 
 
           {/* Bento Item 4 */}
-          <div className={`bento__item sm:col-span-1 sm:row-span-2 md:col-span-2 md:row-span-1 2xl:col-span-3 ${expandedItem && expandedItem !== "item4" ? "hidden" : ""}`}>
-            Item 4
+          <div className={`bento__item border-dashed sm:col-span-1 sm:row-span-2 md:col-span-2 md:row-span-1 2xl:col-span-3${expandedItem && expandedItem !== "item4" ? "hidden" : ""}`}>
+          <a href={`${process.env.PUBLIC_URL}/Marc Ysrael J. Maulion (CV 2025).pdf`} download="Marc Ysrael J. Maulion (CV 2025).pdf" className="flex sm:flex-col md:flex-row justify-center items-center p-[2rem] sm:gap-[1rem] md:gap-[2rem] 2xl:gap-[1rem] w-full h-full">
+          <h1 className="font-bold sm:hidden 2xl:block text-[1.3rem]">get my CV – let's make things happen!</h1>
+          <h1 className="font-bold sm:block 2xl:hidden sm:order-1 md:order-none sm:text-[3rem] md:text-[4rem]">CV</h1>
+                <FontAwesomeIcon icon={faFileArrowDown} className="text-black text-[3.5rem]" />
+              </a>
           </div>
 
 
