@@ -45,12 +45,13 @@
 }
 
 .bento__wrapper > .bento__item:nth-child(6),
-.bento__wrapper > .bento__item:nth-child(3){
+.bento__wrapper > .bento__item:nth-child(3) {
   background: #b19cd8;
   border: dashed 2px #341539;
 }
 
-.bento__wrapper > .bento__item:nth-child(4){
+.bento__wrapper > .bento__item:nth-child(4),
+.bento__item:nth-child(7) {
   border: dashed 2px #000000;
 }
 
@@ -132,6 +133,24 @@
   transition: transform 0.3s ease;
 }
 
+.item3__title:hover .icon {
+  transform: scale(1.3);
+  transition: transform 0.3s ease;
+}
+
+.item3__title .icon {
+  transition: transform 0.3s ease;
+}
+
+.item3__title:hover h1 {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+.item3__title h1 {
+  transition: transform 0.3s ease;
+}
+
 
 .notification-bubble.visible {
   opacity: 1;
@@ -174,6 +193,15 @@
 
   .item2__title h1:hover {
     transform: none;
+  }
+
+  .item3__title:hover .icon {
+    transform: none;
+  }
+  
+  .item3__title:hover h1 {
+    transform: none;
+    transition: transform 0.3s ease;
   }
 }
 

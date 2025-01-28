@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faFile, faFileArrowDown} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faFile, faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faLightbulb } from '@fortawesome/free-regular-svg-icons';
 import { ReactTyped as Typed } from "react-typed";
 
-library.add(faFacebook, faLinkedin, faEnvelope, faFile, faFileArrowDown);
+library.add(faFacebook, faLinkedin, faEnvelope, faFile, faFileArrowDown, faLightbulb);
 
 export default function App() {
   const [expandedItem, setExpandedItem] = useState(null);           // Expand Function
@@ -128,8 +129,8 @@ export default function App() {
 
                 <div className="scrollable__items sm:max-h-[675px] md:max-h-[791px] lg:max-h-[675px] xl:max-h-[591px] 2xl:max-h-[623px] overflow-y-auto overflow-x-hidden scrollbar-hide">
 
-                  <div className="scrollable__wrapper flex flex-col w-full sm:py-[5rem] xl:py-[3rem]">
-                  <div className="scroll__container grid sm:gap-[5rem] lg:gap-[10rem]">
+                  <div className="scrollable__wrapper flex flex-col w-full sm:py-[5rem]  xl:py-[3rem]">
+                  <div className="scroll__container grid sm:gap-[5rem] lg:gap-[10rem] mb-[3rem]">
 
                     {/* First Scroll */}
                     <div className="first__scroll w-full flex sm:flex-col xl:flex-row items-center justify-evenly sm:gap-[2rem] xl:gap-0 sm:mb-[5rem] md:mb-[10rem] lg:mb-0">
@@ -207,8 +208,8 @@ export default function App() {
             {expandedItem === "item2" ? (
               <div className="expandedContent">Expanded content for Item 2</div>
             ) : (
-              <div className="item2__title h-full flex justify-center items-center">
-                <h1 className="text-center font-bold text-[2rem] p-[3rem] text-[#341539]">Check out my first Web Design Project!</h1>
+              <div className="item2__title w-full h-full flex justify-center items-center">
+                <h1 className="text-center font-bold sm:text-[1.5rem] xl:text-[1.4rem] sm:p-[2rem] xl:p-[1rem] 2xl:text-[2rem] 2xl:p-[3rem] text-[#341539]">Check Out My First Web Design Creation!</h1>
               </div>
 
             )}
@@ -224,7 +225,10 @@ export default function App() {
             {expandedItem === "item3" ? (
               <div className="expandedContent">Expanded content for Item 3</div>
             ) : (
-              "Item 3"
+              <div className="item3__title flex sm:p-[1rem] md:p-[2rem] sm:flex-row xl:flex-col sm:gap-[1rem] md:gap-[2rem] xl:gap-[1rem] justify-center items-center w-full h-full">
+                <FontAwesomeIcon icon={faLightbulb} className="icon sm:text-[2.5rem] md:text-[3.5rem] 2xl:text-[4rem] text-[#f4e064] drop-shadow-[2px_2px_10px_#ba8e23]"/>
+                <h1 className="sm:text-justify xl:text-center font-bold sm:text-[.9rem] md:text-[1.5rem]">Technologies encountered so far!</h1>
+              </div>
             )}
           </div>
 
@@ -235,7 +239,7 @@ export default function App() {
           <a href={`${process.env.PUBLIC_URL}/Marc Ysrael J. Maulion (CV 2025).pdf`} download="Marc Ysrael J. Maulion (CV 2025).pdf" className="flex sm:flex-col md:flex-row justify-center items-center p-[2rem] sm:gap-[1rem] md:gap-[2rem] 2xl:gap-[1rem] w-full h-full">
           <h1 className="font-bold sm:hidden 2xl:block text-[1.3rem]">get my CV – let's make things happen!</h1>
           <h1 className="font-bold sm:block 2xl:hidden sm:order-1 md:order-none sm:text-[3rem] md:text-[4rem]">CV</h1>
-                <FontAwesomeIcon icon={faFileArrowDown} className="text-black text-[3.5rem]" />
+                <FontAwesomeIcon icon={faFileArrowDown} className="text-black text-[3.5rem]"/>
               </a>
           </div>
 
