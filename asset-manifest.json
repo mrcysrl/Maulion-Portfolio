@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Maulion-Portfolio/static/css/main.8b46cc68.css",
-    "main.js": "/Maulion-Portfolio/static/js/main.13ee5bd9.js",
+    "main.css": "/Maulion-Portfolio/static/css/main.b2b5daa3.css",
+    "main.js": "/Maulion-Portfolio/static/js/main.301cc351.js",
     "static/js/453.b6cd45f0.chunk.js": "/Maulion-Portfolio/static/js/453.b6cd45f0.chunk.js",
     "index.html": "/Maulion-Portfolio/index.html",
-    "main.8b46cc68.css.map": "/Maulion-Portfolio/static/css/main.8b46cc68.css.map",
-    "main.13ee5bd9.js.map": "/Maulion-Portfolio/static/js/main.13ee5bd9.js.map",
+    "main.b2b5daa3.css.map": "/Maulion-Portfolio/static/css/main.b2b5daa3.css.map",
+    "main.301cc351.js.map": "/Maulion-Portfolio/static/js/main.301cc351.js.map",
     "453.b6cd45f0.chunk.js.map": "/Maulion-Portfolio/static/js/453.b6cd45f0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8b46cc68.css",
-    "static/js/main.13ee5bd9.js"
+    "static/css/main.b2b5daa3.css",
+    "static/js/main.301cc351.js"
   ]
 }
