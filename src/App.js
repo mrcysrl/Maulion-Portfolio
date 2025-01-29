@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faFile, faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faFile, faFileArrowDown, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faLightbulb } from '@fortawesome/free-regular-svg-icons';
 import { ReactTyped as Typed } from "react-typed";
 
-library.add(faFacebook, faLinkedin, faEnvelope, faFile, faFileArrowDown, faLightbulb);
+library.add(faFacebook, faLinkedin, faEnvelope, faFile, faFileArrowDown, faLightbulb, faPhone);
 
 export default function App() {
   const [expandedItem, setExpandedItem] = useState(null);           // Expand Function
@@ -123,7 +123,7 @@ export default function App() {
               <div className="expandedContent relative">
 
                 <div className={`click__home absolute px-[2rem] sm:bottom-10 md:bottom-4 left-1/2 transform -translate-x-1/2 sm: whitespace-normal xl:whitespace-nowrap text-gray-600 sm:text-[.8rem] md:text-[1rem] sm:text-justify lg:text-center w-full transition-opacity ${tipFade ? "hidden ease-[2s]" : "block"}`}>
-                  Tip: Scroll down for more information, and you can always return home by clicking inside this Bento again.
+                Tip: Some bento boxes can be scrolled down for more information, and you can always return home by clicking inside this bento again.
                 </div>
 
 
@@ -185,7 +185,7 @@ export default function App() {
                       </span>
                     ))}
                   </h1>
-                  <p className="text-white sm:text-[.6rem] md:text-[.8rem] xl:text-[1rem]">Computer Engineer 2023 - 2024</p>
+                  <p className="text-white sm:text-[.6rem] md:text-[.8rem] xl:text-[1rem]">Computer Engineer 2019 - 2024</p>
                 </div>
                 <div className="item__image h-full">
                   <img
@@ -201,16 +201,31 @@ export default function App() {
 
 
           {/* Bento Item 2 */}
-          <div className={`bento__item cursor-pointer ${expandedItem === "item2" ? "sm:col-span-3 sm:row-span-6 md:col-span-4 md:row-span-7 lg:col-span-6 lg:row-span-6 xl:col-span-8 xl:row-span-5 2xl:col-span-10" : "sm:col-span-3 sm:row-span-1 md:col-span-4 md:row-span-1 lg:col-span-2 lg:row-span-2 xl:col-span-2 2xl:col-span-3"} 
+          <div className={`bento__item cursor-pointer ${expandedItem === "item2" ? "sm:col-span-3 sm:row-span-6 md:col-span-4 md:row-span-7 lg:col-span-6 lg:row-span-6 xl:col-span-8 xl:row-span-5 2xl:col-span-10 expanded" : "sm:col-span-3 sm:row-span-1 md:col-span-4 md:row-span-1 lg:col-span-2 lg:row-span-2 xl:col-span-2 2xl:col-span-3"} 
             ${expandedItem && expandedItem !== "item2" ? "hidden" : ""}`}
             onClick={() => handleExpand("item2")}>
 
             {expandedItem === "item2" ? (
-              <div className="expandedContent">Expanded content for Item 2</div>
-            ) : (
-              <div className="item2__title w-full h-full flex justify-center items-center">
-                <h1 className="text-center font-bold sm:text-[1.5rem] xl:text-[1.4rem] sm:p-[2rem] xl:p-[1rem] 2xl:text-[2rem] 2xl:p-[3rem] text-[#341539]">Check Out My First Web Design Creation!</h1>
+              <div className="expandedContent relative">
+                <div className={`click__home absolute px-[2rem] sm:bottom-10 md:bottom-4 left-1/2 transform -translate-x-1/2 sm: whitespace-normal xl:whitespace-nowrap text-gray-600 sm:text-[.8rem] md:text-[1rem] sm:text-justify lg:text-center w-full transition-opacity ${tipFade ? "hidden ease-[2s]" : "block"}`}>
+                Tip: Some bento boxes can be scrolled down for more information, and you can always return home by clicking inside this bento again.
+                </div>
+                <div className="scrollable__items sm:max-h-[675px] md:max-h-[791px] lg:max-h-[675px] xl:max-h-[591px] 2xl:max-h-[623px] overflow-y-auto overflow-x-hidden scrollbar-hide">
+
+                  <div className="scrollable__wrapper flex flex-col w-full sm:py-[5rem]  xl:py-[3rem]">
+                  <div className="scroll__container grid sm:gap-[5rem] lg:gap-[10rem] mb-[3rem]">
+                    
+                  </div>
+                  </div>
+                </div>
               </div>
+              
+            ) : (
+              
+              <div className="item__title w-full h-full flex justify-center items-center">
+                <h1 className="text-center font-bold sm:text-[1.5rem] xl:text-[1.4rem] sm:p-[2rem] xl:p-[1rem] 2xl:text-[2rem] 2xl:p-[3rem] text-black">Check Out My First Web Design Creation!</h1>
+              </div>
+              
 
             )}
           </div>
@@ -225,9 +240,9 @@ export default function App() {
             {expandedItem === "item3" ? (
               <div className="expandedContent">Expanded content for Item 3</div>
             ) : (
-              <div className="item3__title flex sm:p-[1rem] md:p-[2rem] sm:flex-row xl:flex-col sm:gap-[1rem] md:gap-[2rem] xl:gap-[1rem] justify-center items-center w-full h-full">
-                <FontAwesomeIcon icon={faLightbulb} className="icon sm:text-[2.5rem] md:text-[3.5rem] 2xl:text-[4rem] text-[#f4e064] drop-shadow-[2px_2px_10px_#ba8e23]"/>
-                <h1 className="sm:text-justify xl:text-center font-bold sm:text-[.9rem] md:text-[1.5rem]">Technologies encountered so far!</h1>
+              <div className="item__title flex sm:p-[1rem] md:p-[2rem] sm:flex-row xl:flex-col sm:gap-[1rem] md:gap-[2rem] xl:gap-[1rem] justify-center items-center w-full h-full">
+                <FontAwesomeIcon icon={faLightbulb} className="icon sm:text-[2.5rem] md:text-[3.5rem] 2xl:text-[4rem] text-white"/>
+                <h1 className="text-white sm:text-justify xl:text-center sm:text-[.9rem] md:text-[1.2rem]">Technologies encountered so far!</h1>
               </div>
             )}
           </div>
@@ -236,10 +251,10 @@ export default function App() {
 
           {/* Bento Item 4 */}
           <div className={`bento__item cursor-pointer sm:col-span-1 sm:row-span-2 md:col-span-2 md:row-span-1 2xl:col-span-3 ${expandedItem && expandedItem !== "item4" ? "hidden" : ""}`}>
-          <a href={`${process.env.PUBLIC_URL}/Marc Ysrael J. Maulion (CV 2025).pdf`} download="Marc Ysrael J. Maulion (CV 2025).pdf" className="flex sm:flex-col md:flex-row justify-center items-center p-[2rem] sm:gap-[1rem] md:gap-[2rem] 2xl:gap-[1rem] w-full h-full">
+          <a href={`${process.env.PUBLIC_URL}/Marc Ysrael J. Maulion (CV 2025).pdf`} download="Marc Ysrael J. Maulion (CV 2025).pdf" className="item__title flex sm:flex-col md:flex-row justify-center items-center p-[2rem] sm:gap-[1rem] md:gap-[2rem] 2xl:gap-[1rem] w-full h-full">
           <h1 className="font-bold sm:hidden 2xl:block text-[1.3rem]">get my CV – let's make things happen!</h1>
           <h1 className="font-bold sm:block 2xl:hidden sm:order-1 md:order-none sm:text-[3rem] md:text-[4rem]">CV</h1>
-                <FontAwesomeIcon icon={faFileArrowDown} className="text-black text-[3.5rem]"/>
+                <FontAwesomeIcon icon={faFileArrowDown} className="icon text-black text-[3.5rem]"/>
               </a>
           </div>
 
@@ -253,7 +268,10 @@ export default function App() {
             {expandedItem === "item5" ? (
               <div className="expandedContent">Expanded content for Item 5</div>
             ) : (
-              "Item 5"
+              <div className="item__title flex sm:p-[1rem] md:p-[2rem] sm:flex-row xl:flex-col sm:gap-[1rem] md:gap-[2rem] xl:gap-[1rem] justify-center items-center w-full h-full">
+                <FontAwesomeIcon icon={faPhone} className="icon sm:text-[2.5rem] md:text-[3.5rem] 2xl:text-[4rem] text-black"/>
+                <h1 className="sm:text-justify xl:text-center font-bold sm:text-[.9rem] md:text-[1.5rem]">Get in Touch!</h1>
+              </div>
             )}
           </div>
 
@@ -267,7 +285,7 @@ export default function App() {
             {expandedItem === "item6" ? (
               <div className="expandedContent">Expanded content for Item 6</div>
             ) : (
-              "Item 6"
+              ""
             )}
           </div>
 
@@ -290,7 +308,7 @@ export default function App() {
             ) : (
               <div className="item8__title h-full grid grid-cols-[2fr, 1fr] gap-[1rem] items-center p-[2rem]">
                 <div className="flex">
-                <h1 className="text-justify font-bold text-[1.5rem] text-[#341539]">Check out my first Web Design Project!</h1>
+                <h1 className="text-justify font-bold text-[1.5rem] text-black">Check out my first Web Design Project!</h1>
                 </div>
               </div>
             )}
@@ -299,13 +317,13 @@ export default function App() {
 
 
           {/* Bento Item 9 */}
-          <div className={`bento__item ${expandedItem && expandedItem !== "item9" ? "hidden" : ""} flex justify-center items-center w-full h-full bg-red-600 rounded-full relative`}>
+          <div className={`bento__item ${expandedItem && expandedItem !== "item9" ? "hidden" : ""} flex justify-center items-center w-full h-full bg-[#ffffff] rounded-full border-solid border-black border-[2px] relative`}>
             <button onClick={handleCopyEmail} className="flex justify-center items-center w-full h-full">
-              <FontAwesomeIcon icon={faEnvelope} size="3x" className="text-white" />
+              <FontAwesomeIcon icon={faEnvelope} size="3x" className="text-black" />
             </button>
             {/* Notification bubble */}
             {showNotification && (
-              <div className="absolute top-[-2.5rem] left-1/2 transform -translate-x-1/2 bg-green-500 sm:text-[.75rem] lg:text-[.8rem] xl:text-base text-white sm:px-[1rem] xl:px-[1.5rem] py-[1rem] rounded-[1rem] text-sm shadow-lg text-center max-w-[40rem] whitespace-nowrap">
+              <div className="absolute top-[-2.5rem] left-1/2 transform -translate-x-1/2 bg-[#000000] sm:text-[.75rem] lg:text-[.8rem] xl:text-base text-white sm:px-[1rem] xl:px-[1.5rem] py-[1rem] rounded-[1rem] text-sm shadow-lg text-center max-w-[40rem] whitespace-nowrap">
                 Email Address Copied
               </div>
             )}
@@ -314,27 +332,27 @@ export default function App() {
 
 
           {/* Bento Item 10 */}
-          <div className={`bento__item ${expandedItem && expandedItem !== "item10" ? "hidden" : ""} flex justify-center items-center w-full h-full bg-[#4267B2] rounded-full`}>
+          <div className={`bento__item ${expandedItem && expandedItem !== "item10" ? "hidden" : ""} flex justify-center items-center w-full h-full bg-[#ffffff] border-solid border-[2px] border-black rounded-full`}>
               <a href="https://www.facebook.com/marcjimenez.maulion" target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-full h-full">
-                <FontAwesomeIcon icon={faFacebook} size="3x" className="text-white" />
+                <FontAwesomeIcon icon={faFacebook} size="3x" className="text-black" />
               </a>
           </div>
 
 
 
           {/* Bento Item 11 */}
-          <div className={`bento__item ${expandedItem && expandedItem !== "item10" ? "hidden" : ""} flex justify-center items-center w-full h-full bg-[#0077b5] rounded-full`}>
+          <div className={`bento__item ${expandedItem && expandedItem !== "item10" ? "hidden" : ""} flex justify-center items-center w-full h-full bg-[#ffffff] border-solid border-[2px] border-black rounded-full`}>
               <a href="https://www.linkedin.com/in/marc-ysrael-maulion-914402279" target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-full h-full">
-                <FontAwesomeIcon icon={faLinkedin} size="3x" className="text-white" />
+                <FontAwesomeIcon icon={faLinkedin} size="3x" className="text-black" />
               </a>
           </div>
 
 
 
           {/* Bento Item 12 */}
-          <div className={`bento__item col-span-3 row-span-1  flex justify-center items-center bg-[#282c34] rounded-lg shadow-md p-4 ${expandedItem === null ? "" : "hidden"}`}>
+          <div className={`bento__item col-span-3 row-span-1  flex justify-center items-center bg-[#000000] rounded-lg shadow-md p-4 ${expandedItem === null ? "" : "hidden"}`}>
             <div className="w-[60%] mx-auto my-0">
-            <h3 className="text-[1.2rem] font-bold text-white text-justify ">Made with ReactJS & Tailwind CSS</h3>
+            <h3 className="text-[1.2rem] text-white text-justify ">Made with ReactJS & Tailwind CSS</h3>
             </div>
             <div className="w-[5rem]">
               <img src= {`${process.env.PUBLIC_URL}/logo192.png`} alt="" className="logo-spin" />

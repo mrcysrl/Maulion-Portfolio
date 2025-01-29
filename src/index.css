@@ -38,20 +38,19 @@
 }
 
 .bento__wrapper > .bento__item:nth-child(2),
+.bento__wrapper > .bento__item:nth-child(7),
 .bento__wrapper > .bento__item:nth-child(5),
 .bento__wrapper > .bento__item:nth-child(8) {
-  background: #f4e064;
-  border: dashed 2px #ba8e23;
+  background: #ffffff;
+  border: solid 2px #000000;
 }
 
-.bento__wrapper > .bento__item:nth-child(6),
-.bento__wrapper > .bento__item:nth-child(3) {
-  background: #b19cd8;
-  border: dashed 2px #341539;
+.bento__wrapper > .bento__item:nth-child(3),
+.bento__wrapper > .bento__item:nth-child(6) {
+  background: #000000;
 }
 
-.bento__wrapper > .bento__item:nth-child(4),
-.bento__item:nth-child(7) {
+.bento__wrapper > .bento__item:nth-child(4) {
   border: dashed 2px #000000;
 }
 
@@ -123,39 +122,32 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-
-.item2__title h1:hover {
-  transform: scale(1.2);
+/*---Item2---*/
+.item__title:hover h1 {
+  transform: scale(1.15);
   transition: transform 0.3s ease;
 }
 
-.item2__title h1 { 
+.item__title h1 { 
   transition: transform 0.3s ease;
 }
 
-.item3__title:hover .icon {
+.item__title:hover .icon{
   transform: scale(1.3);
   transition: transform 0.3s ease;
 }
 
-.item3__title .icon {
+.item__title .icon{
   transition: transform 0.3s ease;
 }
 
-.item3__title:hover h1 {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
-}
-
-.item3__title h1 {
-  transition: transform 0.3s ease;
-}
 
 
 .notification-bubble.visible {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, -10px);
+  transition: 0.5s ease;
 }
 
 
@@ -191,24 +183,29 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
   }
 
-  .item2__title h1:hover {
+  .item__title h1:hover {
     transform: none;
   }
 
-  .item3__title:hover .icon {
+  .item__title:hover .icon {
     transform: none;
   }
-  
-  .item3__title:hover h1 {
-    transform: none;
-    transition: transform 0.3s ease;
-  }
+
 }
 
 .second__scroll p span{
   display: block;
   margin: 1rem 0;
 }
+
+
+@media (max-height: 500px) {
+  .container {
+    height: 100%;
+    margin: 10rem auto;
+  }
+}
+
 
 
 
