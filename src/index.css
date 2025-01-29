@@ -183,7 +183,7 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
   }
 
-  .item__title h1:hover {
+  .item__title:hover h1 {
     transform: none;
   }
 
