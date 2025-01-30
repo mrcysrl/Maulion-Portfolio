@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faFile, faFileArrowDown, faPhone, faBrain, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCss, faFacebook, faFigma, faHtml5, faJava, faJs, faLinkedin, faMicrosoft, faNodeJs, faPhp, faPython, faReact, faSass, faWordpress } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faFile, faFileArrowDown, faPhone, faBrain, faStar, faPlus, faHashtag, faDatabase, faWind, faVideo, faImage, faVirus, faServer, faMicrochip } from '@fortawesome/free-solid-svg-icons';
 import { faLightbulb } from '@fortawesome/free-regular-svg-icons';
 import { ReactTyped as Typed } from "react-typed";
 
-library.add(faFacebook, faLinkedin, faEnvelope, faFile, faFileArrowDown, faLightbulb, faPhone, faBrain, faStar);
+library.add(faFacebook, faLinkedin, faEnvelope, faFile, faFileArrowDown, faLightbulb, faPhone, faBrain, faStar, faHtml5);
 
 export default function App() {
   const [expandedItem, setExpandedItem] = useState(null);           // Expand Function
@@ -40,7 +40,7 @@ export default function App() {
         setShowNotification(true);
         setTimeout(() => setShowNotification(false), 3000);
       })
-      .catch(err => console.error('Failed to copy email: ', err));
+      .catch(err => console.error('Failed to Copy Email: ', err));
   };
 
 
@@ -104,7 +104,7 @@ export default function App() {
       <div className={`container p-8 mx-auto my-0 flex justify-center items-center sm:h-full lg:h-screen sm:w-screen
         ${expandedItem ? "sm:h-screen" : ""}`}>
         <div className={`bento__wrapper
-        text-black grid 2xl:gap-[2rem] xl:gap-[1.5rem] sm:gap-[1rem]
+        text-black grid sm:gap-[1rem] xl:gap-[1.5rem] 2xl:gap-[2rem]
           2xl:grid-cols-[repeat(10,_100px)] 2xl:grid-rows-[repeat(5,_100px)]
           xl:grid-cols-[repeat(8,_100px)] xl:grid-rows-[repeat(5,_100px)]
           lg:grid-cols-[repeat(6,_100px)] lg:grid-rows-[repeat(6,_100px)]
@@ -122,9 +122,9 @@ export default function App() {
             onClick={() => handleExpand("item1")}>
 
             {expandedItem === "item1" ? (
-              <div className="expandedContent relative">
+              <div className="expandedContent relative h-full">
 
-                <div className={`click__home absolute px-[2rem] sm:bottom-10 md:bottom-4 left-1/2 transform -translate-x-1/2 sm: whitespace-normal xl:whitespace-nowrap text-gray-600 sm:text-[.8rem] md:text-[1rem] sm:text-justify lg:text-center w-full transition-opacity ${tipFade ? "hidden ease-[2s]" : "block"}`}>
+                <div className={`click__home absolute px-[2rem] bottom-6 left-1/2 transform -translate-x-1/2 sm: whitespace-normal xl:whitespace-nowrap text-gray-600 sm:text-[.8rem] md:text-[1rem] sm:text-justify lg:text-center w-full transition-opacity ${tipFade ? "hidden ease-[2s]" : "block"}`}>
                 Tip: Some bento boxes can be scrolled down for more information, and you can always return home by clicking inside this bento again.
                 </div>
 
@@ -132,7 +132,7 @@ export default function App() {
                 <div className="scrollable__items sm:max-h-[675px] md:max-h-[791px] lg:max-h-[675px] xl:max-h-[591px] 2xl:max-h-[623px] overflow-y-auto overflow-x-hidden scrollbar-hide">
 
                   <div className="scrollable__wrapper flex flex-col w-full sm:py-[5rem]  xl:py-[3rem]">
-                  <div className="scroll__container grid sm:gap-[5rem] lg:gap-[10rem] mb-[3rem]">
+                    <div className="scroll__container grid sm:gap-[5rem] lg:gap-[10rem] mb-[3rem]">
 
                     {/* First Scroll */}
                     <div className="first__scroll w-full flex sm:flex-col xl:flex-row items-center justify-evenly sm:gap-[2rem] xl:gap-0 sm:mb-[5rem] md:mb-[10rem] lg:mb-0">
@@ -173,7 +173,7 @@ export default function App() {
                       </div>
                     </div>
 
-                  </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -215,9 +215,9 @@ export default function App() {
                 <div className="scrollable__items sm:max-h-[675px] md:max-h-[791px] lg:max-h-[675px] xl:max-h-[591px] 2xl:max-h-[623px] overflow-y-auto overflow-x-hidden scrollbar-hide">
 
                   <div className="scrollable__wrapper flex flex-col w-full sm:py-[5rem]  xl:py-[3rem]">
-                  <div className="scroll__container grid sm:gap-[5rem] lg:gap-[10rem] mb-[3rem]">
+                    <div className="scroll__container grid sm:gap-[5rem] lg:gap-[10rem] mb-[3rem]">
                     
-                  </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -240,7 +240,131 @@ export default function App() {
             onClick={() => handleExpand("item3")}>
 
             {expandedItem === "item3" ? (
-              <div className="expandedContent">Expanded content for Item 3</div>
+              <div className="expandedContent relative h-full">
+              <div className="scrollable__items sm:max-h-[675px] md:max-h-[791px] lg:max-h-[675px] xl:max-h-[591px] 2xl:max-h-[623px] overflow-y-auto overflow-x-hidden scrollbar-hide">
+
+                <div className="scrollable__wrapper flex flex-col w-full sm:py-[5rem] xl:py-[3rem]">
+                  <div className="scroll__container grid sm:gap-[3rem] xl:gap-[4rem]">
+
+                    <div className="bento__tools px-[2rem]">
+                      <h1 className="text-white text-center font-bold sm:px-0 lg:px-[4rem] xl:p-0 sm:text-[1.2rem] md:text-[1.5rem] lg:text-[1.8rem] xl:text-[2rem]">My Toolkit: Languages, Frameworks & IDEs</h1>
+                    </div>
+
+                    <div className="bento__tools flex flex-row flex-wrap justify-center items-center sm:max-w-full md:max-w-[80%] lg:max-w-[70%] 2xl:max-w-[80%] px-[2rem] mx-auto my-0 sm:gap-[1rem] md:gap-[1.5rem] lg:gap-[2rem]">
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faHtml5} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">html</h1>
+                      </div>
+                      
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faCss} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">css</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faJs} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">javascript</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faPlus} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">C++</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faHashtag} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">C#</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faPython} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">python</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faJava} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">java</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faPhp} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">php</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faMicrosoft} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">mssql</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faDatabase} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">mysql</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faWind} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">tailwind</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faReact} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">reactjs</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faSass} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">sass</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faNodeJs} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">nodejs</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faWordpress} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">wordpress</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faFigma} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">figma</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faVideo} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">video edit</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faImage} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">photoshop</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faVirus} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">cybersecurity</h1>
+                      </div>
+                      
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faServer} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">networking</h1>
+                      </div>
+
+                      <div className="bento__tools__boxes flex flex-col items items-center justify-center mx-auto my-0 gap-[.5rem] sm:w-[4rem] sm:h-[4rem] lg:w-[5rem] lg:h-[5rem] xl:w-[6rem] xl:h-[6rem]">
+                        <FontAwesomeIcon icon={faMicrochip} className="text-white sm:text-[2rem] lg:text-[3rem] xl:text-[4rem]" />
+                        <h1 className="sm:text-[.8rem] lg:text-[1rem] xl:text-[1.2rem] text-white">hardware</h1>
+                      </div>
+                    
+                    </div>
+                    <div className="bento__tools__disclosure flex items-center justify-center sm:p-[2rem] 2xl:p-[1rem] mx-auto my-0 sm:max-w-full lg:max-w-[80%] 2xl:max-w-[60%]">
+                      <h1 className="text-white text-justify sm:text-[.8rem] lg:text-[1rem]">Full Disclosure: The listed technologies range from those I have strong expertise in to those I’ve only encountered briefly. However, I’m always eager to learn and improve in areas where I have less experience.</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             ) : (
               <div className="item__title flex sm:p-[1rem] md:p-[2rem] sm:flex-row xl:flex-col sm:gap-[1rem] md:gap-[2rem] xl:gap-[1rem] justify-center items-center w-full h-full">
                 <FontAwesomeIcon icon={faLightbulb} className="icon sm:text-[2.5rem] md:text-[3.5rem] 2xl:text-[4rem] text-white"/>
@@ -253,11 +377,11 @@ export default function App() {
 
           {/* Bento Item 4 */}
           <div className={`bento__item cursor-pointer sm:col-span-1 sm:row-span-2 md:col-span-2 md:row-span-1 2xl:col-span-3 ${expandedItem && expandedItem !== "item4" ? "hidden" : ""}`}>
-          <a href={`${process.env.PUBLIC_URL}/Marc Ysrael J. Maulion (CV 2025).pdf`} download="Marc Ysrael J. Maulion (CV 2025).pdf" className="item__title flex sm:flex-col md:flex-row justify-center items-center p-[2rem] sm:gap-[1rem] md:gap-[2rem] 2xl:gap-[1rem] w-full h-full">
-          <h1 className="font-bold sm:hidden 2xl:block text-[1.3rem]">get my CV – let's make things happen!</h1>
-          <h1 className="font-bold sm:block 2xl:hidden sm:order-1 md:order-none sm:text-[3rem] md:text-[4rem]">CV</h1>
+            <a href={`${process.env.PUBLIC_URL}/Marc Ysrael J. Maulion (CV 2025).pdf`} download="Marc Ysrael J. Maulion (CV 2025).pdf" className="item__title flex sm:flex-col md:flex-row justify-center items-center p-[2rem] sm:gap-[1rem] md:gap-[2rem] 2xl:gap-[1rem] w-full h-full">
+            <h1 className="font-bold sm:hidden 2xl:block text-[1.3rem]">get my CV – let's make things happen!</h1>
+            <h1 className="font-bold sm:block 2xl:hidden sm:order-1 md:order-none sm:text-[3rem] md:text-[4rem]">CV</h1>
                 <FontAwesomeIcon icon={faFileArrowDown} className="icon text-black text-[3.5rem]"/>
-              </a>
+            </a>
           </div>
 
 
@@ -299,7 +423,7 @@ export default function App() {
           {/* Bento Item 7 */}
           <div className={`bento__item sm:col-span-1 sm:row-span-1 md:col-span-2 xl:col-span-2 xl:row-span-1 ${expandedItem && expandedItem !== "item7" ? "hidden" : ""}`}>
           <a href="https://github.com/mrcysrl/Maulion-Portfolio" target="_blank" rel="noopener noreferrer" className="flex justify-center items-center p-[1rem] gap-[1rem] w-full h-full">
-            <h3 className="sm:hidden md:block font-bold md:text-[1.3rem] 2xl:text-[1.5rem] text-justify ">Bento-Style</h3>
+            <h3 className="sm:hidden md:block font-bold md:text-[1.3rem] lg:text-[1.2rem] 2xl:text-[1.5rem] text-justify ">Bento-Style</h3>
             <div className="sm:w-[5rem] md:w-[3rem]">
               <img src= {`${process.env.PUBLIC_URL}/bento.png`} alt=""/>
             </div>
@@ -329,12 +453,11 @@ export default function App() {
             <button onClick={handleCopyEmail} className="flex justify-center items-center w-full h-full">
               <FontAwesomeIcon icon={faEnvelope} size="3x" className="text-black" />
             </button>
+
             {/* Notification bubble */}
-            {showNotification && (
-              <div className="absolute top-[-2.5rem] left-1/2 transform -translate-x-1/2 bg-[#000000] sm:text-[.75rem] lg:text-[.8rem] xl:text-base text-white sm:px-[1rem] xl:px-[1.5rem] py-[1rem] rounded-[1rem] text-sm shadow-lg text-center max-w-[40rem] whitespace-nowrap">
-                Email Address Copied
-              </div>
-            )}
+            <div className={`absolute top-[-2rem] left-1/2 transform -translate-x-1/2 bg-[#000000] sm:text-[.75rem] lg:text-[.8rem] 2xl:text-[1rem] text-white p-[1rem] rounded-[1rem] text-sm shadow-lg text-center max-w-[40rem] whitespace-nowrap sm:border-black xl:border-t-2 xl:border-r-2 xl:border-white 2xl:border-black  ${showNotification ? "opacity-100" : "opacity-0 translate-y-0"} transition-opacity duration-500 ease-in-out`}>
+              Email Address Copied
+            </div>
           </div>
 
 
