@@ -30,7 +30,7 @@
 
 .bento__wrapper.shrink {
   transform: scale(0.9);
-  opacity: 0.1;
+  opacity: 0.01;
 }
 
 .bento__item.expandedContent {
@@ -138,6 +138,13 @@
 
 
 
+/*------Education------*/
+.education__title h2{
+  font-family: monospace;
+}
+
+
+
 /*------Spin------*/
 @keyframes spin {
   0% {
@@ -186,13 +193,10 @@
 }
 
 
-@media (max-height: 600px) {
+@media (max-height: 500px) {
   .container {
     height: 100%;
     margin: 10rem auto;
   }
 }
-
-
-
 
