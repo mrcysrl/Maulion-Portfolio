@@ -50,9 +50,10 @@
   background: #000000;
 }
 
-.bento__wrapper > .bento__item:nth-child(4) {
-  border: dashed 2px #000000;
+.bento__wrapper > .bento__item:nth-child(4){
+  border: solid 2px #000000;
 }
+
 
 
 /*------Letter Animation Bounce------*/
@@ -135,6 +136,20 @@
 .item__title .icon{
   transition: transform 0.3s ease;
 }
+
+
+
+/*------Contacts------*/
+.contacts__wrapper li{
+  transition: ease .5s;
+}
+
+.contacts__wrapper li:hover{
+ background: #000000;
+ color: #ffffff;
+ transition: ease .5s;
+}
+
 
 
 

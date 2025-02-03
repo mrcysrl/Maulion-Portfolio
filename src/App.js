@@ -11,7 +11,7 @@ library.add(faFacebook, faLinkedin, faEnvelope, faFile, faFileArrowDown, faLight
 export default function App() {
   const [expandedItem, setExpandedItem] = useState(null);           // Expand Function
   const [isShrinking, setIsShrinking] = useState(false);            // Expand Function
-  const [showNotification, setShowNotification] = useState(false);  // Email Copy Function
+  const [activeNotification, setActiveNotification] = useState(null);  // Email Copy Function
   const [visibleSections, setVisibleSections] = useState({
     second: false,
     third: false,
@@ -22,7 +22,11 @@ export default function App() {
 
 
   // Expand Function
-  const handleExpand = (item) => {
+  const handleExpand = (item, event) => {
+    if (event?.target.closest(".contacts__wrapper li")) {
+      return;
+    }
+
     setIsShrinking(true);
     setTimeout(() => {
       setExpandedItem(item === expandedItem ? null : item);
@@ -32,16 +36,28 @@ export default function App() {
 
 
 
-  // Email Copy Function
-  const handleCopyEmail = () => {
-    const email = "marcysraelmaulion@gmail.com";
-    navigator.clipboard.writeText(email)
-      .then(() => {
-        setShowNotification(true);
-        setTimeout(() => setShowNotification(false), 3000);
-      })
-      .catch(err => console.error('Failed to Copy Email: ', err));
-  };
+
+// Email Copy Function
+const handleCopyEmail = () => {
+  const email = "marcysraelmaulion@gmail.com";
+  navigator.clipboard.writeText(email)
+    .then(() => {
+      setActiveNotification("email");
+      setTimeout(() => setActiveNotification(null), 3000);
+    })
+    .catch(err => console.error('Failed to Copy Email: ', err));
+};
+
+// Phone Number Copy Function
+const handleCopyNumber = () => {
+  const number = "+63 956 250 0441";
+  navigator.clipboard.writeText(number)
+    .then(() => {
+      setActiveNotification("phone");
+      setTimeout(() => setActiveNotification(null), 3000);
+    })
+    .catch(err => console.error('Failed to Copy Number: ', err));
+};
 
 
 
@@ -389,10 +405,91 @@ export default function App() {
           {/* Bento Item 5 */}
           <div className={`bento__item cursor-pointer ${expandedItem === "item5" ? "sm:col-span-3 sm:row-span-6 md:col-span-4 md:row-span-7 lg:col-span-6 lg:row-span-6 xl:col-span-8 2xl:col-span-10 expanded" : "sm:col-span-2 sm:row-span-1 md:row-span-2 xl:row-span-1 2xl:row-span-2"} 
             ${expandedItem && expandedItem !== "item5" ? "hidden" : ""}`}
-            onClick={() => handleExpand("item5")}>
+            onClick={(event) => handleExpand("item5", event)}>
 
             {expandedItem === "item5" ? (
-              <div className="expandedContent">Expanded content for Item 5</div>
+              <div className="expandedContent flex items-center justify-center w-full h-full">
+                <div className="scrollable__items sm:max-h-[675px] md:max-h-[791px] lg:max-h-[675px] xl:max-h-[591px] 2xl:max-h-[623px] overflow-y-auto overflow-x-hidden scrollbar-hide w-full">
+                
+                  <div className="contacts__wrapper sm:grid xl:grid-cols-2 sm:gap-[4rem] xl:gap-[2rem] sm:px-[1.5rem] md:px-[2rem] sm:my-[4rem] ">
+
+                    <div className="contacts__main grid gap-[2rem] items-center justify-center">
+                      <div className="main__title grid gap-[.5rem]">
+                        <h1 className="font-bold sm:text-[2rem] md:text-[3rem] font-montserrat text-center">Contacts</h1>
+                        <p className="sm:text-[.8rem] md:text-[1rem] 2xl:text-[1.2rem] font-montserrat mx-auto my-0 text-center">Reach me directly for opportunities or inquiries.</p>
+                      </div>
+                      <ul className="grid gap-[1rem]">
+
+                        <li className="flex items-center text-justify border-[3px] border-black border-dashed rounded-[1rem] py-[1rem] sm:px-[1rem] md:px-[2rem] sm:gap-[1rem] md:gap-[2rem] sm:h-[5rem] md:h-[6rem] xl:h-[7rem] sm:w-[17rem] md:w-[24rem] xl:w-[27rem] 2xl:w-[32rem]" onClick={handleCopyNumber}>
+                          {activeNotification === "phone" ? (
+                            <div className="animate-fade-in-1 text-center w-full">
+                              <p className="md:text-[1.5rem] 2xl:text-[2rem] font-montserrat">Phone Number Copied</p>
+                            </div>
+                          ) : (
+                            <>
+                              <h2 className="sm:text-[1.5rem] md:text-[2rem] animate-fade-in-fast"><FontAwesomeIcon icon={faPhone} className="" /></h2>
+                            <div className="">
+                              <h1 className="sm:text-[.8rem] md:text-[1rem] 2xl:text-[1.2rem] font-montserrat animate-fade-in-fast">phone</h1>
+                              <p className="sm:text-[.8rem] md:text-[1rem] xl:text-[1.25rem] 2xl:text-[1.5rem] font-bold italic animate-fade-in-fast">+63 956 250 0441</p>
+                            </div>
+                            </>
+                          )}
+                        </li>
+
+                        <li className="flex items-center text-justify border-[3px] border-black border-dashed rounded-[1rem] py-[1rem] sm:px-[1rem] md:px-[2rem] sm:gap-[1rem] md:gap-[2rem] sm:h-[5rem] md:h-[6rem] xl:h-[7rem] sm:w-[17rem] md:w-[24rem] xl:w-[27rem] 2xl:w-[32rem]" onClick={handleCopyEmail}>
+                          {activeNotification === "email" ? (
+                            <div className="animate-fade-in-1 text-center w-full">
+                              <p className="sm:text-[1rem] md:text-[1.5rem] 2xl:text-[2rem] font-montserrat">Email Address Copied</p>
+                            </div>
+                          ) : (
+                            <>
+                              <h2 className="sm:text-[1.5rem] md:text-[2rem] animate-fade-in-fast"><FontAwesomeIcon icon={faEnvelope} className="" /></h2>
+                            <div className="">
+                              <h1 className="sm:text-[.8rem] md:text-[1rem] 2xl:text-[1.2rem] font-montserrat animate-fade-in-fast">email</h1>
+                              <p className="sm:text-[.8rem] md:text-[1rem] xl:text-[1.25rem] 2xl:text-[1.5rem] font-bold italic animate-fade-in-fast">marcysraelmaulion@gmail.com</p>
+                            </div>
+                            </>
+                          )}
+                        </li>
+
+                      </ul>
+                    </div>
+
+
+                    <div className="socials__main grid gap-[2rem] items-center justify-center">
+                      <div className="main__title grid gap-[.5rem]">
+                        <h1 className="font-bold sm:text-[2rem] md:text-[3rem] font-montserrat text-center">Socials</h1>
+                        <p className="sm:text-[.8rem] md:text-[1rem] 2xl:text-[1.2rem] font-montserrat mx-auto my-0 text-center">Connect with me and stay updated.</p>
+                      </div>
+                      <ul className="flex flex-col gap-[1rem]">
+
+                      <a href="https://www.facebook.com/marcjimenez.maulion" target="_blank" rel="noopener noreferrer">
+                        <li className="flex items-center text-justify border-[3px] border-black border-dashed rounded-[1rem] py-[1rem] sm:px-[1rem] md:px-[2rem] sm:gap-[1rem] md:gap-[2rem] sm:h-[5rem] md:h-[6rem] xl:h-[7rem] sm:w-[17rem] md:w-[24rem] xl:w-[27rem] 2xl:w-[32rem]">
+                          <h2 className="text-[2rem] animate-fade-in-fast"><FontAwesomeIcon icon={faFacebook} className=""/></h2>
+                          <div className="">
+                          <h1 className="sm:text-[.8rem] md:text-[1rem] 2xl:text-[1.2rem] font-montserrat animate-fade-in-fast">Facebook</h1>
+                          <p className="sm:text-[.8rem] md:text-[1rem] xl:text-[1.25rem] 2xl:text-[1.5rem] font-bold italic animate-fade-in-fast">Marc Jimenez Maulion</p>
+                          </div>
+                        </li>
+                      </a>
+
+                      <a href="https://www.linkedin.com/in/marc-ysrael-maulion-914402279" target="_blank" rel="noopener noreferrer">
+                        <li className="flex items-center text-justify border-[3px] border-black border-dashed rounded-[1rem] py-[1rem] sm:px-[1rem] md:px-[2rem] sm:gap-[1rem] md:gap-[2rem] sm:h-[5rem] md:h-[6rem] xl:h-[7rem] sm:w-[17rem] md:w-[24rem] xl:w-[27rem] 2xl:w-[32rem]">
+                          <h2 className="text-[2rem] animate-fade-in-fast"><FontAwesomeIcon icon={faLinkedin} className=""/></h2>
+                          <div className="">
+                          <h1 className="sm:text-[.8rem] md:text-[1rem] 2xl:text-[1.2rem] font-montserrat animate-fade-in-fast">Linkedin</h1>
+                          <p className="sm:text-[.8rem] md:text-[1rem] xl:text-[1.25rem] 2xl:text-[1.5rem] font-bold italic animate-fade-in-fast">Marc Ysrael Maulion</p>
+                          </div>
+                        </li>
+                      </a>
+                      </ul>
+                    </div>
+
+                    
+                   
+                  </div>
+                </div>
+              </div>
             ) : (
               <div className="item__title flex sm:p-[1rem] md:p-[2rem] sm:flex-row md:flex-col xl:flex-row 2xl:flex-col gap-[1rem] justify-center items-center w-full h-full">
                 <FontAwesomeIcon icon={faPhone} className="icon sm:text-[1.75rem] md:text-[3.5rem] xl:text-[2.5rem] 2xl:text-[4rem] text-black"/>
@@ -413,7 +510,7 @@ export default function App() {
                 
                 <div className="scrollable__items sm:max-h-[675px] md:max-h-[791px] lg:max-h-[675px] xl:max-h-[591px] 2xl:max-h-[623px] overflow-y-auto overflow-x-hidden scrollbar-hide">
 
-                  <div className="education__wrapper sm:grid lg:grid lg:grid-cols-2 lg:grid-rows-2 sm:gap-[2rem] lg:gap-[1.5rem] 2xl:gap-[2rem] w-full h-full text-white leading-1 sm:px-[1.5rem] md:px-[2rem] sm:my-[3rem]">
+                  <div className="education__wrapper sm:grid lg:grid lg:grid-cols-2 lg:grid-rows-2 sm:gap-[2rem] lg:gap-[1.5rem] 2xl:gap-[2rem] w-full h-full text-white leading-1 sm:px-[1.5rem] md:px-[2rem] sm:my-[3rem] lg:my-[1rem]">
                 
                 <div className="education__tertiary animate-fade-in-1">
                   <div className="education__title">
@@ -510,7 +607,7 @@ export default function App() {
             </button>
 
             {/* Notification bubble */}
-            <div className={`absolute top-[-2rem] left-1/2 transform -translate-x-1/2 bg-[#000000] sm:text-[.75rem] lg:text-[.8rem] 2xl:text-[1rem] text-white p-[1rem] rounded-[1rem] text-sm shadow-lg text-center max-w-[40rem] whitespace-nowrap sm:border-black xl:border-t-2 xl:border-r-2 xl:border-white 2xl:border-black  ${showNotification ? "opacity-100" : "opacity-0 translate-y-0"} transition-opacity duration-500 ease-in-out`}>
+            <div className={`absolute top-[-2rem] left-1/2 transform -translate-x-1/2 bg-[#000000] sm:text-[.75rem] lg:text-[.8rem] 2xl:text-[1rem] text-white p-[1rem] rounded-[1rem] text-sm shadow-lg text-center max-w-[40rem] whitespace-nowrap sm:border-black xl:border-t-2 xl:border-r-2 xl:border-white 2xl:border-black  ${activeNotification === "email" ? "opacity-100" : "opacity-0 translate-y-0"} transition-opacity duration-500 ease-in-out`}>
               Email Address Copied
             </div>
           </div>
