@@ -139,6 +139,26 @@
 
 
 
+/*------Projects------*/
+.project__images img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.project__text a{
+  transition: ease .5s;
+}
+
+.project__text a:hover{
+ background: #000000;
+ color: #ffffff;
+ transition: ease .5s;
+}
+
+
+
+
 /*------Contacts------*/
 .contacts__wrapper li{
   transition: ease .5s;

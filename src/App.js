@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCss, faFacebook, faFigma, faHtml5, faJava, faJs, faLinkedin, faMicrosoft, faNodeJs, faPhp, faPython, faReact, faSass, faWordpress } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faFile, faFileArrowDown, faPhone, faBrain, faStar, faPlus, faHashtag, faDatabase, faWind, faVideo, faImage, faVirus, faServer, faMicrochip, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faFile, faFileArrowDown, faPhone, faBrain, faStar, faPlus, faHashtag, faDatabase, faWind, faVideo, faImage, faVirus, faServer, faMicrochip, faArrowRight, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { faLightbulb } from '@fortawesome/free-regular-svg-icons';
 import { ReactTyped as Typed } from "react-typed";
 
@@ -23,16 +23,17 @@ export default function App() {
 
   // Expand Function
   const handleExpand = (item, event) => {
-    if (event?.target.closest(".contacts__wrapper li")) {
+      if (event?.target.closest(".contacts__wrapper li, .project__text a")) {
       return;
     }
-
+  
     setIsShrinking(true);
     setTimeout(() => {
       setExpandedItem(item === expandedItem ? null : item);
       setIsShrinking(false);
     }, 300);
   };
+  
 
 
 
@@ -224,15 +225,29 @@ const handleCopyNumber = () => {
             onClick={() => handleExpand("item2")}>
 
             {expandedItem === "item2" ? (
-              <div className="expandedContent relative">
-                <div className={`click__home absolute px-[2rem] sm:bottom-10 md:bottom-4 left-1/2 transform -translate-x-1/2 sm: whitespace-normal xl:whitespace-nowrap text-gray-600 sm:text-[.8rem] md:text-[1rem] sm:text-justify lg:text-center w-full transition-opacity ${tipFade ? "hidden ease-[2s]" : "block"}`}>
-                Tip: Some bento boxes can be scrolled down for more information, and you can always return home by clicking inside this bento again.
-                </div>
+              <div className="expandedContent relative flex items-center justify-center h-full animate-fade-in-3">
                 <div className="scrollable__items sm:max-h-[675px] md:max-h-[791px] lg:max-h-[675px] xl:max-h-[591px] 2xl:max-h-[623px] overflow-y-auto overflow-x-hidden scrollbar-hide">
 
-                  <div className="scrollable__wrapper flex flex-col w-full sm:py-[5rem]  xl:py-[3rem]">
-                    <div className="scroll__container grid sm:gap-[5rem] lg:gap-[10rem] mb-[3rem]">
-                    
+                  <div className="project__wrapper sm:grid xl:grid-cols-[2fr_2.5fr] gap-[2rem] p-[2rem]">
+
+                    <div className="project__text flex flex-col gap-[1rem] items-center justify-center max-w-[90%] mx-auto sm:order-2 xl:order-none">
+
+                      <h1 className="sm:text-[1.5rem] xl:text-[2rem] 2xl:text-[2.5rem] font-montserrat font-bold text-center">Gomez Production</h1>
+
+                      <p className="sm:text-[.9rem] md:text-[1rem] xl:text-[1.2rem] 2xl:text-[1.5rem] font-montserrat text-justify ">I designed a simple and responsive website for an international client from the Netherlands, specializing in videography and photography services. </p>
+
+                      <a href="https://gomezproductionweb-link.on.drv.tw/www.gmzprod.com/" target="_blank" rel="noopener noreferrer" className="sm:text-[1rem] xl:text-[1.2rem] 2xl:text-[1.5rem] px-[2rem] py-[1rem] border-solid border-[2px] border-black rounded-[2rem] my-[1.5rem]" onClick={(e) => { e.stopPropagation(); }}>Check it out.<FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ml-[1rem]"/></a>
+                    </div>
+
+                    <div className="project__images grid  sm:gap-[0.5rem] xl:gap-[1rem] border-solid border-[2px] border-black rounded-[2rem]  mx-auto my-0
+                    2xl:grid-cols-[repeat(2,_minmax(0,20rem))] 2xl:grid-rows-[repeat(2,_15rem)]
+                    xl:grid-cols-[repeat(2,_minmax(0,15rem))] xl:grid-rows-[repeat(2,_10rem)]
+                    md:grid-cols-[repeat(2,_minmax(0,12rem))] md:grid-rows-[repeat(2,_9.5rem)]
+                    sm:grid-cols-[repeat(2,_minmax(0,10rem))] sm:grid-rows-[repeat(2,_6rem)]
+                    max-w-[40rem]">
+                      <img src={`${process.env.PUBLIC_URL}/Project1.png`} alt="" className="col-span-2 rounded-tl-[2rem] rounded-tr-[2rem]"/>
+                      <img src={`${process.env.PUBLIC_URL}/Project2.png`} alt="" className="col-span-1 rounded-bl-[2rem]"/>
+                      <img src={`${process.env.PUBLIC_URL}/Project3.png`} alt="" className="col-span-1 rounded-br-[2rem]"/>
                     </div>
                   </div>
                 </div>
@@ -384,7 +399,7 @@ const handleCopyNumber = () => {
             ) : (
               <div className="item__title flex sm:p-[1rem] md:p-[2rem] sm:flex-row xl:flex-col sm:gap-[1rem] md:gap-[2rem] xl:gap-[1rem] justify-center items-center w-full h-full">
                 <FontAwesomeIcon icon={faLightbulb} className="icon sm:text-[2.5rem] md:text-[3.5rem] 2xl:text-[4rem] text-white"/>
-                <h1 className="text-white sm:text-justify xl:text-center sm:text-[1rem] md:text-[1.2rem]">Technologies encountered so far</h1>
+                <h1 className="text-white sm:text-justify xl:text-center sm:text-[1rem] md:text-[1.2rem]">Tool Knowledge, and Technologies</h1>
               </div>
             )}
           </div>
@@ -420,7 +435,7 @@ const handleCopyNumber = () => {
                       </div>
                       <ul className="grid gap-[1rem]">
 
-                        <li className="flex items-center text-justify border-[3px] border-black border-dashed rounded-[1rem] py-[1rem] sm:px-[1rem] md:px-[2rem] sm:gap-[1rem] md:gap-[2rem] sm:h-[5rem] md:h-[6rem] xl:h-[7rem] sm:w-[17rem] md:w-[24rem] xl:w-[27rem] 2xl:w-[32rem]" onClick={handleCopyNumber}>
+                        <li className="flex items-center text-justify border-[3px] border-black sm:border-solid xl:border-dashed rounded-[1rem] py-[1rem] sm:px-[1rem] md:px-[2rem] sm:gap-[1rem] md:gap-[2rem] sm:h-[5rem] md:h-[6rem] xl:h-[7rem] sm:w-[17rem] md:w-[24rem] xl:w-[27rem] 2xl:w-[32rem]" onClick={handleCopyNumber}>
                           {activeNotification === "phone" ? (
                             <div className="animate-fade-in-1 text-center w-full">
                               <p className="md:text-[1.5rem] 2xl:text-[2rem] font-montserrat">Phone Number Copied</p>
@@ -436,7 +451,7 @@ const handleCopyNumber = () => {
                           )}
                         </li>
 
-                        <li className="flex items-center text-justify border-[3px] border-black border-dashed rounded-[1rem] py-[1rem] sm:px-[1rem] md:px-[2rem] sm:gap-[1rem] md:gap-[2rem] sm:h-[5rem] md:h-[6rem] xl:h-[7rem] sm:w-[17rem] md:w-[24rem] xl:w-[27rem] 2xl:w-[32rem]" onClick={handleCopyEmail}>
+                        <li className="flex items-center text-justify border-[3px] border-black sm:border-solid xl:border-dashed rounded-[1rem] py-[1rem] sm:px-[1rem] md:px-[2rem] sm:gap-[1rem] md:gap-[2rem] sm:h-[5rem] md:h-[6rem] xl:h-[7rem] sm:w-[17rem] md:w-[24rem] xl:w-[27rem] 2xl:w-[32rem]" onClick={handleCopyEmail}>
                           {activeNotification === "email" ? (
                             <div className="animate-fade-in-1 text-center w-full">
                               <p className="sm:text-[1rem] md:text-[1.5rem] 2xl:text-[2rem] font-montserrat">Email Address Copied</p>
@@ -464,7 +479,7 @@ const handleCopyNumber = () => {
                       <ul className="flex flex-col gap-[1rem]">
 
                       <a href="https://www.facebook.com/marcjimenez.maulion" target="_blank" rel="noopener noreferrer">
-                        <li className="flex items-center text-justify border-[3px] border-black border-dashed rounded-[1rem] py-[1rem] sm:px-[1rem] md:px-[2rem] sm:gap-[1rem] md:gap-[2rem] sm:h-[5rem] md:h-[6rem] xl:h-[7rem] sm:w-[17rem] md:w-[24rem] xl:w-[27rem] 2xl:w-[32rem]">
+                        <li className="flex items-center text-justify border-[3px] border-black sm:border-solid xl:border-dashed rounded-[1rem] py-[1rem] sm:px-[1rem] md:px-[2rem] sm:gap-[1rem] md:gap-[2rem] sm:h-[5rem] md:h-[6rem] xl:h-[7rem] sm:w-[17rem] md:w-[24rem] xl:w-[27rem] 2xl:w-[32rem]">
                           <h2 className="text-[2rem] animate-fade-in-fast"><FontAwesomeIcon icon={faFacebook} className=""/></h2>
                           <div className="">
                           <h1 className="sm:text-[.8rem] md:text-[1rem] 2xl:text-[1.2rem] font-montserrat animate-fade-in-fast">Facebook</h1>
@@ -474,7 +489,7 @@ const handleCopyNumber = () => {
                       </a>
 
                       <a href="https://www.linkedin.com/in/marc-ysrael-maulion-914402279" target="_blank" rel="noopener noreferrer">
-                        <li className="flex items-center text-justify border-[3px] border-black border-dashed rounded-[1rem] py-[1rem] sm:px-[1rem] md:px-[2rem] sm:gap-[1rem] md:gap-[2rem] sm:h-[5rem] md:h-[6rem] xl:h-[7rem] sm:w-[17rem] md:w-[24rem] xl:w-[27rem] 2xl:w-[32rem]">
+                        <li className="flex items-center text-justify border-[3px] border-black sm:border-solid xl:border-dashed rounded-[1rem] py-[1rem] sm:px-[1rem] md:px-[2rem] sm:gap-[1rem] md:gap-[2rem] sm:h-[5rem] md:h-[6rem] xl:h-[7rem] sm:w-[17rem] md:w-[24rem] xl:w-[27rem] 2xl:w-[32rem]">
                           <h2 className="text-[2rem] animate-fade-in-fast"><FontAwesomeIcon icon={faLinkedin} className=""/></h2>
                           <div className="">
                           <h1 className="sm:text-[.8rem] md:text-[1rem] 2xl:text-[1.2rem] font-montserrat animate-fade-in-fast">Linkedin</h1>
@@ -512,7 +527,7 @@ const handleCopyNumber = () => {
 
                   <div className="education__wrapper sm:grid lg:grid lg:grid-cols-2 lg:grid-rows-2 sm:gap-[2rem] lg:gap-[1.5rem] 2xl:gap-[2rem] w-full h-full text-white leading-1 sm:px-[1.5rem] md:px-[2rem] sm:my-[3rem] lg:my-[1rem]">
                 
-                <div className="education__tertiary animate-fade-in-1">
+                <div className="education__tertiary sm:animate-fade-in-4 lg:animate-fade-in-3 sm:order-4 lg:order-3">
                   <div className="education__title">
                     <h2 className="sm:text-[1rem] md:text[1.25] xl:text-[1rem] 2xl:text-[1.25rem]"><FontAwesomeIcon icon={faArrowRight}/> tertiary</h2>
                     <div className="education__context grid sm:gap-0 md:gap-[0.5rem] lg:gap-0 sm:pl-[1rem] 2xl:pl-[2rem]">
@@ -524,7 +539,7 @@ const handleCopyNumber = () => {
                   </div>
                 </div>
 
-                <div className="education__tertiary animate-fade-in-2">
+                <div className="education__tertiary sm:animate-fade-in-3 lg:animate-fade-in-1 sm:order-3 lg:order-1">
                   <div className="education__title ">
                     <h2 className="sm:text-[1rem] md:text[1.25] xl:text-[1rem] 2xl:text-[1.25rem]"><FontAwesomeIcon icon={faArrowRight}/> internship</h2>
                     <div className="education__context grid sm:gap-0 md:gap-[0.5rem] lg:gap-0 sm:pl-[1rem] 2xl:pl-[2rem]">
@@ -536,19 +551,18 @@ const handleCopyNumber = () => {
                   </div>
                 </div>
 
-                <div className="education__tertiary animate-fade-in-3">
+                <div className="education__tertiary sm:animate-fade-in-2 sm:order-2">
                   <div className="education__title ">
                     <h2 className="sm:text-[1rem] md:text[1.25] xl:text-[1rem] 2xl:text-[1.25rem]"><FontAwesomeIcon icon={faArrowRight}/> secondary</h2>
                     <div className="education__context grid sm:gap-0 md:gap-[0.5rem] lg:gap-0 sm:pl-[1rem] 2xl:pl-[2rem]">
                     <h1 className="sm:text-[1.5rem] md:text-[2rem] lg:text-[1.5rem] 2xl:text-[2.25rem] italic font-bold">Joseph Marello Institute</h1>
                     <h3 className="sm:text-[1rem] md:text-[1.2rem] lg:text-[1rem] xl:text-[1.2rem] 2xl:text-[1.5rem] font-montserrat">STEM Graduate</h3>
                     <h4 className="sm:text-[1rem] md:text-[1.25rem] lg:text-[1rem] 2xl:text-[1.25rem]">Enrolled for both Junior and Senior High</h4>
-                    <p className="text-[.8rem] sm:my-[0.5rem] lg:my-[1rem] xl:my-[0.5rem] sm:leading-1 2xl:leading-2 text-justify sm:max-w-full xl:max-w-[90%]">Meh, no awards—but I did have a 2000 Scholastic Reading Lexile Score, though.</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="education__tertiary animate-fade-in-4">
+                <div className="education__tertiary sm:animate-fade-in-1 lg:animate-fade-in-4 sm:order-1 lg:order-4">
                   <div className="education__title ">
                     <h2 className="sm:text-[1rem] md:text[1.25] xl:text-[1rem] 2xl:text-[1.25rem]"><FontAwesomeIcon icon={faArrowRight}/> primary</h2>
                     <div className="education__context grid sm:gap-0 md:gap-[0.5rem] lg:gap-0 sm:pl-[1rem] 2xl:pl-[2rem]">
