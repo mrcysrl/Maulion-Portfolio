@@ -36,8 +36,6 @@ export default function App() {
   
 
 
-
-
 // Email Copy Function
 const handleCopyEmail = () => {
   const email = "marcysraelmaulion@gmail.com";
@@ -48,6 +46,7 @@ const handleCopyEmail = () => {
     })
     .catch(err => console.error('Failed to Copy Email: ', err));
 };
+
 
 // Phone Number Copy Function
 const handleCopyNumber = () => {
@@ -182,11 +181,14 @@ const handleCopyNumber = () => {
                     <div className={`second__scroll w-full flex 
                       items-center justify-center transition-opacity duration-500 ${visibleSections.third ? "opacity-100" : "opacity-0"}`} data-section="third">
                       <div className="third__title text-center">
-                      <p className="sm:text-[.75rem] md:text-[1rem] xl:text-[1.5rem] text-justify max-w-[80%] mx-auto my-0 text-white bg-black sm:px-[2rem] lg:px-[4rem] sm:py-[2rem] lg:py-[4rem] rounded-tr-[3rem] rounded-bl-[3rem] shadow-[0px_4px_8px_rgba(0,_0,_0,_0.9)]"><span>I have a good foundation in cybersecurity, including networking through CISCO Academy and malware analysis, along with a deep understanding of both hardware and software. I’ve gained hands-on experience working with PC hardware by offering services like upgrading RAM, replacing monitors, and building custom PCs.</span>
+                      <p className="sm:text-[.75rem] md:text-[1rem] xl:text-[1.5rem] text-justify max-w-[80%] mx-auto my-0 text-white bg-black sm:px-[2rem] lg:px-[4rem] sm:py-[2rem] lg:py-[4rem] rounded-tr-[3rem] rounded-bl-[3rem] shadow-[0px_4px_8px_rgba(0,_0,_0,_0.9)] font-montserrat">
+                      <span className="font-bold text-center sm:py-[1rem] lg:py-[2rem]">Welcome to my portfolio, built with ReactJS and TailwindCSS!</span>
                       
-                      <span>During my On-the-Job Training at Frontline Business Solutions, I developed practical skills in web development. Afterward, I took on freelance projects, including creating a website for a videography and photography business in the Netherlands, which helped me further refine my web development expertise.</span>
+                      <span className="sm:indent-[1rem] lg:indent-[2rem]">Hello! My name is <strong><em>Marc Ysrael J. Maulion</em></strong>. I have a good foundation in cybersecurity, with expertise in networking through the CISCO Academy and malware analysis, along with a deep understanding of both hardware and software. My hands-on experience in PC hardware includes providing services such as RAM upgrades, laptop monitor replacements, and custom PC builds.</span>
+                      
+                      <span className="sm:indent-[1rem] lg:indent-[2rem]">During my On-the-Job Training at Frontline Business Solutions, I developed practical skills in web development. Afterward, I took on freelance projects, including creating a website for a videography and photography business in the Netherlands, which helped me further refine my web development expertise.</span>
 
-                      <span>I’m passionate about combining my technical knowledge and creativity to deliver impactful solutions in web development, hardware troubleshooting, and cybersecurity.</span></p>
+                      <span className="sm:indent-[1rem] lg:indent-[2rem]">I’m passionate about combining my technical knowledge and creativity to deliver impactful solutions in web development, hardware troubleshooting, and cybersecurity.</span></p>
                       </div>
                     </div>
 
@@ -604,7 +606,44 @@ const handleCopyNumber = () => {
             onClick={() => handleExpand("item8")}>
 
             {expandedItem === "item8" ? (
-              <div className="expandedContent">Expanded content for Item 8</div>
+              <div className="expandedContent flex items-center justify-center w-full h-full">
+                <div className="scrollable__items sm:max-h-[675px] md:max-h-[791px] lg:max-h-[675px] xl:max-h-[591px] 2xl:max-h-[623px] overflow-y-auto overflow-x-hidden scrollbar-hide">
+                  <div className="skills__wrappper flex flex-row flex-wrap p-[2rem] gap-[2rem] font-montserrat justify-evenly">
+                    <div className="skill__first sm:max-w-full xl:max-w-[45%] ">
+                      <h1 className="md:text-[1.3rem] lg:text-[1.2rem] 2xl:text-[1.5rem] font-bold sm:pb-[1rem] xl:pb-0">Cybersecurity Skills</h1>
+                      <ul className="skills list-disc pl-[2rem] sm:text-[1rem] md:text-[1.1rem] text-justify">
+                        <li>Proficient in sandboxing tools like Oracle VM VirtualBox with Windows XP, Windows 7, and Windows 10 environments</li>
+                        <li>Skilled in malware analysis tools, including Bintext, Detect-It-Easy, HIEW, OLLYDBG, PEiD, Process Hacker, Process Monitor, and Resource Hacker</li>
+                        <li>Good knowledge of network monitoring tool like WireShark</li>
+                        <li>Currently studying workarounds with SIEM solutions like Splunk</li>
+                      </ul>
+                    </div>
+
+                    <div className="skill__second sm:max-w-full xl:max-w-[45%]">
+                      <h1 className="md:text-[1.3rem] lg:text-[1.2rem] xl:text-[1.2rem] 2xl:text-[1.5rem] font-bold sm:pb-[1rem] xl:pb-0">Front-End and Back-End Development</h1>
+                      <ul className="skills list-disc pl-[2rem] sm:text-[1rem] md:text-[1.1rem] text-justify">
+                        <li>Good grasp of programming languages including C++, Java, C#, Python, and
+                        PHP</li>
+                        <li>Experienced with SQL (MySQL & MSSQL)</li>
+                        <li>Experienced in building and managing content using WordPress</li>
+                        <li>Skilled in creating responsive and interactive web interfaces using HTML, CSS, and JavaScript</li>
+                        <li>Experienced with modern frameworks and libraries such as Tailwind Framework</li>
+                      </ul>
+                    </div>
+
+                    <div className="skill__third sm:max-w-full xl:max-w-[45%] ">
+                      <h1 className="md:text-[1.3rem] lg:text-[1.2rem] 2xl:text-[1.5rem] font-bold sm:pb-[1rem] xl:pb-0">Additional Technical Skills</h1>
+                      <ul className="skills list-disc pl-[2rem] sm:text-[1rem] md:text-[1.1rem] text-justify">
+                        <li>Good knowledge of PC hardware, both desktop and laptop</li>
+                        <li>Experienced with multimedia tools, including video editing software and graphic design</li>
+                        <li>Proficient in Windows operating systems</li>
+                        <li>Proficient in Microsoft Office 365 applications</li>
+                      </ul>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
             ) : (
               <div className="item__title w-full h-full flex justify-center items-center">
                 <h1 className="text-center font-bold sm:text-[1.5rem] md:text-[3rem] xl:text-[2rem] p-[2rem] 2xl:text-[3.5rem] text-black">skills <FontAwesomeIcon icon={faStar}/></h1>
