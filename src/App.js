@@ -447,7 +447,7 @@ const handleCopyNumber = () => {
                               <h2 className="sm:text-[1.5rem] md:text-[2rem] animate-fade-in-fast"><FontAwesomeIcon icon={faPhone} className="" /></h2>
                             <div className="">
                               <h1 className="sm:text-[.8rem] md:text-[1rem] 2xl:text-[1.2rem] font-montserrat animate-fade-in-fast">phone</h1>
-                              <p className="sm:text-[.8rem] md:text-[1rem] xl:text-[1.25rem] 2xl:text-[1.5rem] font-bold italic animate-fade-in-fast">+63 956 250 0441</p>
+                              <p className="sm:text-[.8rem] md:text-[1rem] xl:text-[1.25rem] 2xl:text-[1.5rem] font-bold italic animate-fade-in-fast">+971 50 331 6743</p>
                             </div>
                             </>
                           )}
