@@ -238,7 +238,7 @@ const handleCopyNumber = () => {
 
                       <p className="sm:text-[.9rem] md:text-[1rem] xl:text-[1.2rem] 2xl:text-[1.5rem] font-montserrat text-justify ">I designed a simple and responsive website for an international client from the Netherlands, specializing in videography and photography services. </p>
 
-                      <a href="https://gomezproductionweb-link.on.drv.tw/www.gmzprod.com/" target="_blank" rel="noopener noreferrer" className="sm:text-[1rem] xl:text-[1.2rem] 2xl:text-[1.5rem] px-[2rem] py-[1rem] border-solid border-[2px] border-black rounded-[2rem] my-[1.5rem]" onClick={(e) => { e.stopPropagation(); }}>Check it out.<FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ml-[1rem]"/></a>
+                      <a href="https://gmznl.github.io/GomezProductionNL/" target="_blank" rel="noopener noreferrer" className="sm:text-[1rem] xl:text-[1.2rem] 2xl:text-[1.5rem] px-[2rem] py-[1rem] border-solid border-[2px] border-black rounded-[2rem] my-[1.5rem]" onClick={(e) => { e.stopPropagation(); }}>Check it out.<FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ml-[1rem]"/></a>
                     </div>
 
                     <div className="project__images grid  sm:gap-[0.5rem] xl:gap-[1rem] border-solid border-[2px] border-black rounded-[2rem]  mx-auto my-0
